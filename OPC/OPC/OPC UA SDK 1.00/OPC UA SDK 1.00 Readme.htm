@@ -1,0 +1,1133 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>UA SDK for .NET</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Arial";}
+a:link, span.MsoHyperlink
+	{font-family:"Arial";
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{font-family:"Arial";
+	color:purple;
+	text-decoration:underline;}
+ /* Page Definitions */
+ @page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-autospace:none'><b><span
+style='font-family:Arial'><font size="3">UA SDK 1.00.132 Readme<br>
+October 28, 2007</font></span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Overview</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'><br>
+The UA SDK is a set of interfaces, libraries and executables that
+allow developers to quickly create UA applications with the .NET 
+programming environment. The SDK includes:<br>
+</span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+     font-family:Arial'>Implementations of the XML Web Services and UA Native
+     Binary stack profiles;</span></li>
+ <li class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+     font-family:Arial'>Server and Client development toolkits;</span></li>
+ <li class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+     font-family:Arial'>Sample Applications;</span></li>
+	<li class=MsoNormal style='text-autospace:none'>A wrapper for COM-DA 
+	Servers (DA 2.05a and DA3.00);</li>
+	<li class=MsoNormal style='text-autospace:none'>A Diagnostics Client 
+	Application;</li>
+	<li class=MsoNormal style='text-autospace:none'>Local Discovery Server;</li>
+</ul>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The sample applications are available with source code. The
+stack and development toolkits are available only as binaries. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Release Notes</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>This release of the SDK supports
+the core specification (Parts 1 though Part 6). It also has support for 
+Part 8, 9, 10 and 12.</span></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The key changes in this release 
+are:</p>
+<ul>
+	<li>
+	<p class=MsoNormal style='text-autospace:none'>ANSI C and C# implementations 
+	of the UA TCP protocol (including security);</p></li>
+	<li>
+	<p class=MsoNormal style='text-autospace:none'>Local Discovery Server;</p>
+	</li>
+	<li>
+	<p class=MsoNormal style='text-autospace:none'>Diagnostic Client;</p></li>
+	<li>
+	<p class=MsoNormal style='text-autospace:none'>Binaries installer no longer 
+	requires IIS;</p></li>
+	<li>
+	<p class=MsoNormal style='text-autospace:none'>Various bug fixes and code 
+	clean up;</p></li>
+</ul>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'><b>Known Issues</b></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>This release does not incorporate 
+a number of changes to the specification (i.e. any changes approved after 
+September 15th, 2007).</p>
+<p class=MsoNormal style='text-autospace:none'>This release is a stable build 
+that can be used for interoperability testing between .NET and C/C++ 
+applications. </p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Installation</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The SDK requires the
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=10CC340B-F857-4A14-83F5-25634C3BF043&displaylang=en">
+.NET 3.0 runtime</a>. It should run on any Microsoft operating system that 
+supports the .NET 3.0 runtime. It has been tested with Windows XP at this time. </span></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The Binaries installer requires 
+that the
+<a href="http://www.opcfoundation.org/Downloads.aspx?CM=1&CN=KEY&CI=280&CU=10">
+OPC Core Components Redistributable</a> be installed first. Note that this 
+package is installed by many OPC applications.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>
+<span style='font-size:10.0pt;
+font-family:Arial'>The SDK will install on Vista, however, the UAC (User Access Control) must be 
+turned off to install the application certificates. </span></p>
+<p class=MsoNormal style='text-autospace:none'>
+&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>
+If the SDK installer does not run on Vista then you must turn on IIS6 
+compatibility mode. You form the 'Turn windows features on or off' dialog and 
+check the IIS6 Management components.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>
+<span style='font-size:10.0pt;
+font-family:Arial'>The SDK also requires that IIS be installed. If IIS is
+installed after installing the .NET runtime then it may be necessary to run the
+following command in a command shell:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>%SystemRoot%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis.exe
+–</span><span style="font-family: Courier New">r</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Building the sample applications requires the <a
+href="http://www.microsoft.com/downloads/details.aspx?FamilyId=C2B1E300-F358-4523-B479-F53D234CDCCF&amp;displaylang=en">Windows
+SDK</a>.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Developers using Visual Studio 2005 should install
+<a href="http://msdn2.microsoft.com/en-us/vstudio/aa718695.aspx">Service Pack 1</a> 
+and
+the 
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=F54F5537-CC86-4BF5-AE44-F5A1E805680D&displaylang=en">.NET
+3.0 extensions</a>.</span></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The SDK is distributed as a ZIP 
+file that contains a program called setup.exe and an MSI file. On Vista you must 
+unzip the files into their own directory and run the setup.exe. Trying to run 
+the MSI directly will not work.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>Using the COM-DA wrapper requires 
+a the COM DA 3.00 Sample Servers. These can be downloaded from the OPC 
+Foundation website
+<a href="http://www.opcfoundation.org/Downloads.aspx?CM=1&CN=KEY&CI=274&EBP=0&SRT=ModificationTime&DES=Y&SE1=ReleaseStatus&FV1=Released&FT1=&SE2=Title&FV2=Custom&FT2=%Sample%">
+here</a>.</p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Configuration</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The sample applications require application instance
+certificates which must be installed in the local machine certificate store.
+The install program placed a batch file in the Programs Menu under &quot;<b>OPC
+Foundation | UA SDK 1.00</b>&quot; that will create and install test certificates. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+<p class=MsoNormal style='text-autospace:none'>Note that you must turn off the 
+UAC if you want to use the batch file with Vista.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>There is an MMC plug-in that allows computer administrators to
+browse the certificate store and manage the certificates in it. It can be
+launched with the following steps:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Run mmc.exe</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Click Files | Add/Remove Snap In…</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Click Add...</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>4)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Select “Certificates” and click
+“Add”</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>5)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Select “Computer account” and click
+“Next”.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>6)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Select “Local computer” and click
+“Next”</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>7)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Click “Close”</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'><span style='font-size:10.0pt;font-family:Arial'>8)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:10.0pt;font-family:Arial'>Click “OK”</span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>If the script ran successfully there should be two UA sample
+certificates in the “Personal” folder.</span></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>If the script did not run then 
+you can import the certificates manually by using the certificate import wizard. </p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>You can start this wizard by 
+right clicking on a store folder and clicking &quot;All Tasks | Import..&quot;. </p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The are three files to import 
+which are placed in the '<b>UA SDK 1.00\Install</b>' directory. You will need to 
+change the file type to 'Personal Information Exchange (*.pfx)' to see the 
+files. </p>
+<p class=MsoNormal style='text-autospace:none'>These files are called 
+UASampleRoot.pfx, UASampleClient.pfx and UASampleServer.pfx</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>After selecting a file you will 
+be prompted for a password which is: password</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The UASampleServer and 
+UASampleClient certificates must go into the Personal store.</p>
+<p class=MsoNormal style='text-autospace:none'>The UASampleRoot certificate must 
+go in the Trusted Root Certification Authorities store.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>Confirm that the certificate 
+should be placed in the store your selected and finish the wizard.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;<span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Sample Applications</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>There are two sample applications bundled with the SDK:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&quot;UA Sample Client&quot; is a UA client and server application with a GUI 
+(the client and server are independent of each other)</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&quot;UA </span><span style='font-size:10.0pt;
+font-family:Arial'>Sample </span>
+<span style='font-size:10.0pt;
+font-family:Arial'>Server</span><span style='font-size:10.0pt;
+font-family:Arial'>&quot; is a standalone UA server application without a GUI</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The applications can be launched from </span>
+<span style='font-size:10.0pt;
+font-family:Arial'>&quot;<b>OPC
+Foundation | UA SDK 1.00</b>&quot; </span>
+<span style='font-size:10.0pt;
+font-family:Arial'>directory in the Programs menu. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The<i> </i>UA Sample Server application can also be hosted
+inside IIS. The installer creates and a virtual directory for the IIS hosted
+server here: <a href="http://localhost/UASampleService/Service.svc">http://localhost/UASampleService/Service.svc</a></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Clicking on that link should display an ASP .NET test page
+in a web browser.</span></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>If the ASP .NET test page does 
+not appear it is a problem with your ASP .NET configuration. This
+<a href="http://msdn2.microsoft.com/en-us/library/ms752241.aspx">page</a> may 
+help.</p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Running the Local Discovery Server</span></b></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The Local Discovery Server (LDS) 
+must be started manually. The installer places a shortcut in the the Programs 
+Menu. This process is used by the client applications to discover servers 
+running on a machine. Note that, unlike COM, UA servers *must* be started 
+manually before a client can connect to them.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>If you get a error starting the 
+LDS then that likely means an instance of the LDS is already running. Try 
+restarting IIS if no process appears to exist.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Selecting a Server</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><i><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The UA Sample Client can connect to any of the sample
+servers. When this application is launched a drop down menu with several URL
+appears. The URLs of the sample servers are: </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td width=133 valign=top style='width:99.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>UA Sample Client</span></p>
+  </td>
+  <td width=457 valign=top style='width:342.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>http://localhost:6000/UA/SampleClient</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=133 valign=top style='width:99.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>UA Sample Server</span></p>
+  </td>
+  <td width=457 valign=top style='width:342.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>http://localhost:5000/UA/SampleServer</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=133 valign=top style='width:99.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>IIS Hosted Server</span></p>
+  </td>
+  <td width=457 valign=top style='width:342.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>http://localhost/UASampleService/Service.svc</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Note that you must manually start the UA Sample Server
+application before you can connect to it. If the UA </span><span style='font-size:10.0pt;
+font-family:Arial'>Sample </span>
+<span style='font-size:10.0pt;
+font-family:Arial'>Server application is
+running an OPC icon should be visible in the tray of the task bar. Right
+clicking on this icon will allow you to stop the application.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>You connect to a server by selecting it in the drop down and
+click on the “Connect” button.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>You will also see additional text 
+after the URL that indicates what security and/or message encoding is being 
+used. Servers may support multiple endpoints with different security settings. 
+These endpoints can be found by clicking on the '&lt;Browse..&gt;' option and clicking 
+on the 'Discover' button when the endpoints for a server are in view.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Choosing an Endpoint</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'>Any valid URL can be typed into 
+the address bar. However, the client assumes that the discovery endpoint for the 
+server can be constructed by appending '/discovery' to the end of the URL typed 
+in. The client will not be able to connect if the server does not have a 
+discovery endpoint at that address. It is possible to manually enter the the 
+Discovery URLs for the endpoint by selecting &lt;Browse..&gt; in the drop down menu.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>
+<span style='font-size:10.0pt;
+font-family:Arial'>After the “Connect” button is clicked the client calls the
+GetEndpoints service on the discovery endpoint for the server. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Selecting an endpoint URL starting with ‘http:’ will use XML
+Web Services for communication. Selecting a URL starting with ‘opc.tcp’ will
+use UA Native Binary for communication. Note that the current release of the UA
+Native Binary stack profile does not implement security even though the user
+interface claims it is being used.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The XML Web Services stack profile allows clients to use
+either pure XML messages or UA binary encoded messages. The setting can be 
+changed in the configuration for the endpoint. The &lt;Browse..&gt; entry in the 
+dropdown allows you to edit the EndpointDescription and EndpointConfiguration.</span></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The &lt;Browse...&gt; will also you to 
+browse servers on the network using the LDS.</p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Creating a Session</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The ‘Open Session’ dialog appears after clicking 'Connect'. This dialog allows you specify a name for the
+session and the client’s user credentials. The authentication modes depend on
+the endpoint. Only options available for the current endpoint are available. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The name of the session is only used as the name of the node
+containing the diagnostic information for the session in the server address
+space. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The user name/password may be left blank. If a user name is
+specified then it must be a valid windows account on the server machine. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Click “OK” to connect to server.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>At this point data will appear in the controls. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The ‘Session Panel’ is on the left and it displays the
+active sessions and any subscriptions that they have. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The ‘Browse Panel’ is on the right and it displays the
+Object instances in the server address space. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The ‘Notification Panel’ is at the bottom and it displays
+the contents of Publish responses returned from the server.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Browsing the Server Address Space</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The client browses the Objects folder immediately after
+creating a session and displays the results in the right hand panel. The top
+level nodes are:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Server</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Diagnostics information specified in Part 5</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Test Object</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Simulation nodes with are part of the UA Server reference implementation</span></p>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>(not operational in this release)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Vendors</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Contains metadata describing equipment vendors used in the
+  Boiler example.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>BoilerArea</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>An alarm area containing the sample Boilers</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Area1</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Another alarm area containing the sample Boilers</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Boiler1</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>A sample Boiler. </span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Boiler2</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>A second instance of the sample Boiler. </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The Boiler example is described in detail in the 
+presentations from the UA DevCon. The overview slide can be found
+<a href="BoilerOverview.jpg">here</a>. The nodes that appear in the address 
+space for each boiler are <a href="BoilerModel.gif">here</a>.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Clicking on the plus sign next to any of these nodes with
+cause the client to issue a Browse request and display the results as children
+of the node. By default, the client only follows forward hierarchical
+references. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Right clicking on any node will bring up a context menu. The
+actions in this menu do the following:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Browse Options….</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Displays dialog that sets the options passed to the Browse
+  request.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Show References</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Adds nodes representing the references into the tree.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>View Attributes…</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Displays the values of all attributes and properties for
+  the node. </span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Refresh</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+  font-family:Arial'>Re-issues the Browse request with the current options.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>It is also possible to open a new browse window by right
+clicking on the session in the left hand panel. The menu that appears provides
+a number of choices for a starting node. Selecting “All” will display all nodes
+in the address space.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Changing the Browse Options</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The UA address space is a full mesh network, however, such a
+network is difficult to render in a typical two dimensional user interface. For
+that reason, the sample client uses filters passed to the Browse request to
+limit the information displayed in any given view. The user can change these
+filters by following these steps:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Right click on any node and select ‘Show References’. This
+will add an extra node into the tree control that displays the reference type
+for the reference between two nodes.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Right click on the ‘<b>Boiler1</b>’ node in the address space and
+select ‘Browse Options’.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Set the Reference Type to ‘References’. This tells the
+server to return all references from the node being browsed. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The client will re-issue the Browse request when the OK
+button is pressed. The tree control should now display a child folder called
+‘HasTypeDefinition’. In that folder there should be a node called ‘BoilerType’.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Before changing the browse options the only references
+displayed were subtypes of the ‘Hierarchical References’ reference type. In
+this case, the only references from Boiler1 that met these criteria were the
+‘HasComponent’ references. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Using Views</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Server defined Views offer a way to browse a sub-set of the
+address space that the server feels is useful to some clients. The sample
+servers provide a single view called ‘<b>BoilerView</b>’. This view can be browsed by
+right-clicking on the session in the left-hand tree and selecting <b>Browse |
+Server Defined Views | BoilerView</b></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The BoilerView displays the sample boilers and their
+components. References to the type model do not appear in this view.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Reading Data</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Reading data can be done in a number of ways. The simplest
+approach uses the ‘View Attributes’ option that is available in the context
+menu when browsing the address space. If the node is a Variable that allows
+read access then the ‘Read’ option will appear in the context menu.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The node ‘<b>Area1/ Boiler1/LC1001/Measurement</b>’ is readable.
+Find it and click Read. This should display the Read dialog. Clicking the ‘Read’
+button will send the request and display the results.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>You can add more nodes to the request by right-clicking in
+the top panel of the Read dialog. The ‘Select Nodes…’ option brings up the
+Select Node dialog. Note that double clicking on a node in a tree control
+simply expands or collapses the tree. If you wish to select a node you must
+right-click and click on the ‘Select Item’ or ‘Select Children’ options.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>It is also possible to access the Read dialog from the
+Session Panel.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Writing Data</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Writing can also be done from the Browse Panel. Selecting
+any Variable that allows write access will cause the ‘Write’ option to appear
+in the context menu.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The node ‘<b>Area1/ Boiler1/LC1001/SetPoint’</b> is writable. Find
+it and click Write. This should display the Write dialog. Clicking the ‘Write’
+button will send the request and display the results.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Double clicking on a value in the Write dialog will allow
+you to change it.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>It is also possible to access the Write dialog from the
+Session Panel.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Creating Subscriptions</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>It is possible to create new subscriptions by right-clicking
+on a session in the Session Panel. This will bring up the Subscription
+Parameters dialog. Clicking OK brings up an empty Subscription. </span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>At this point notification messages should start to appear
+in the Notifications Panel. These are the keep alive messages for the
+subscription and tell the client and server that communication is still
+functional even if there are notifications available.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>You can monitored items to the subscription by choosing the
+‘Add Items’ in the main menu. The node ‘<b>Area1/ Boiler1</b>' produces events so try
+adding it to the subscription. After about 20 seconds the first event
+notification should appear in the Subscription window.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>It is possible to alter the fields returned in the event
+notification by selecting a monitored item and clicking the ‘Set Filter’
+command from the context menu.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Try adding the children of ‘<b>Area1/ Boiler1/CC1001</b>’ to the
+subscription. These are all variables and they should change each time the
+subscription publish interval expires.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Calling Methods</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Each instance of the sample boilers has a method called
+‘SetSimulationMode’. It can be called by right-clicking on the method node and
+selecting the Call option. This brings up the call dialog which displays the
+input and output parameters for the method.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Double-clicking on an input parameter will allow you to
+change its value. You must specify a valid value for every parameter in this
+example.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>Try setting the ‘RequestedMode’ to False – this will stop
+the simulation. You can verify that the simulation has stopped by reading or
+subscribing to variables for the same boiler. They do not change when the
+simulation is nor running.</span></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'><b>Configuring the COM Wrapper</b></p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+<p class=MsoNormal style='text-autospace:none'>The app.config file for each of 
+the sample applications contains a configuration section called 
+Opc.Ua.SampleServer.<span style='font-size:10.0pt;
+font-family:Arial'> The section has the following elements which control the 
+wrapper:</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse' id="table1">
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>
+	<span style='font-size:10.0pt;
+  font-family:Arial'>NamespaceUri</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class="MsoNormal" style="text-autospace: none">The URI for the namespace 
+	used by the wrapper.</td>
+ </tr>
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class="MsoNormal" style="text-autospace: none">BrowseName</td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>The b<span style='font-size:10.0pt;
+  font-family:Arial'>rowse name of the folder that contains the wrapped server 
+	address space.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Url</p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class="MsoNormal" style="text-autospace: none">The URL of the COM server.</td>
+ </tr>
+ <tr>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>SeperatorChars</p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class="MsoNormal" style="text-autospace: none">Specifies the separator 
+	characters that the server uses for its item ids. This field is not required 
+	and is only used to improve performance when it is possible to extract the 
+	browse name from an item id.</td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+<p class=MsoNormal style='text-autospace:none'>Note that the COM server must be 
+accessible to the server process. This is a particular concern when running the 
+IIS hosted version of the server which runs using the ASPNET account.</p>
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>Contributors</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>The OPC Foundation would like to acknowledge the
+contributions made by the following companies towards the development of this
+deliverable.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal>Christian Zugfil, Matthias Damm</p>
+<p class=MsoNormal>ascolab</p>
+<p class=MsoNormal>
+<a href="http://www.ascolab.com" style="font-family: Arial; color: blue; text-decoration: underline">
+http://www.ascolab.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><font face="sans-serif" size="2">Stefan-Helmut Leitner</font></p>
+
+<p class=MsoNormal>ABB</p>
+<p class=MsoNormal>
+<a style="font-family: Arial; color: blue; text-decoration: underline" href="http://www.abb.com">http://www.abb.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><font face="sans-serif">Alisher Maksumov</font></p>
+
+<p class=MsoNormal>OSIsoft</p>
+<p class=MsoNormal>
+<a href="http://www.osisoft.com/" style="font-family: Arial; color: blue; text-decoration: underline">
+http://www.osisoft.com</a></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;</span></p>
+
+<p class="MsoNormal">Jan Burian, Rudolf Griessl</p>
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Iconics, Inc.</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>
+<a
+href="http://www.softwaretoolbox.com/" style="font-family: Arial; color: blue; text-decoration: underline">http://</a><a style="font-family: Arial; color: blue; text-decoration: underline" href="http://www.iconics.com">www.iconics.com</a></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>John Hoffman</p>
+<p class=MsoNormal>TimeKeeping Systems Inc</p>
+<p class=MsoNormal><a href="http://www.guard1.com">http://www.guard1.com</a></p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Nathan
+Pocock</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Software
+Toolbox, Inc.</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'><a
+href="http://www.softwaretoolbox.com/">http://www.softwaretoolbox.com</a></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Krishna</span><span
+style='font-size:10.0pt;font-family:Arial'> Bandaru</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Tata
+Consulting Services Ltd.</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'><a
+href="http://www.tcs.com/">http://www.tcs.com</a></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>Mark Timperley</p>
+
+<p class=MsoNormal>Inve<span style='font-size:10.0pt;font-family:Arial'>nsys</span></p>
+<p class=MsoNormal><a href="http://www.invensys.com/">http://www.invensys.com</a></p>
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Alexander
+Gdalevich</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Cognex 
+Corporation</span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='font-size:10.0pt;
+font-family:Arial'>
+<a href="http://www.cognex.com/" style="font-family: Arial; color: blue; text-decoration: underline">http://www.cognex.com</a> </span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+<p class=MsoNormal>Craig McMurtry</p>
+
+<p class=MsoNormal>Microsoft Corporation</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>
+<a style="font-family: Arial; color: blue; text-decoration: underline" href="http://www.microsoft.com">http://www.microsoft.com</a></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</body>
+
+</html>

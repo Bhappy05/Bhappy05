@@ -1,0 +1,1869 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 12">
+<meta name=Originator content="Microsoft Word 12">
+<link rel=File-List href="OPC%20UA%20SDK%201.00%20Readme_files/filelist.xml">
+<title>UA SDK for .NET</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Randy Armstrong</o:Author>
+  <o:LastAuthor>Randy Armstrong</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>159</o:TotalTime>
+  <o:Created>2008-03-15T02:10:00Z</o:Created>
+  <o:LastSaved>2008-03-23T20:31:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>3175</o:Words>
+  <o:Characters>18098</o:Characters>
+  <o:Lines>150</o:Lines>
+  <o:Paragraphs>42</o:Paragraphs>
+  <o:CharactersWithSpaces>21231</o:CharactersWithSpaces>
+  <o:Version>12.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=themeData href="OPC%20UA%20SDK%201.00%20Readme_files/themedata.thmx">
+<link rel=colorSchemeMapping
+href="OPC%20UA%20SDK%201.00%20Readme_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>90</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"MS Mincho";
+	mso-fareast-theme-font:minor-fareast;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	font-family:"Arial","sans-serif";
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	font-family:"Arial","sans-serif";
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"MS Mincho";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-noshow:yes;
+	mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"MS Mincho";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-noshow:yes;
+	mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"MS Mincho";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-noshow:yes;
+	mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"MS Mincho";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-noshow:yes;
+	mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"MS Mincho";
+	mso-fareast-theme-font:minor-fareast;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:18547833;
+	mso-list-template-ids:-1853713526;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:1813863982;
+	mso-list-template-ids:260737586;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:2101562177;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1588112112 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="5122"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in;text-justify-trim:
+punctuation'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;text-autospace:none'><b><span
+style='font-size:12.0pt'>UA SDK 1.00.207.1 Readme<br>
+March 21, 2008</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Overview</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><br>
+The UA SDK is a set of interfaces, libraries and executables that allow
+developers to quickly create UA applications with the .NET programming
+environment. The SDK includes:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in;
+     text-autospace:none'><span style='mso-fareast-font-family:"Times New Roman"'>Implementations
+     of the XML Web Services and UA Native Binary stack profiles;<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in;
+     text-autospace:none'><span style='mso-fareast-font-family:"Times New Roman"'>Server
+     and Client development toolkits;<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in;
+     text-autospace:none'><span style='mso-fareast-font-family:"Times New Roman"'>Sample
+     Applications;<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in;
+     text-autospace:none'><span style='mso-fareast-font-family:"Times New Roman"'>A
+     wrapper for COM-DA Servers (DA 2.05a and DA3.00);<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in;
+     text-autospace:none'><span style='mso-fareast-font-family:"Times New Roman"'>A
+     Diagnostics Client Application;<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in;
+     text-autospace:none'><span style='mso-fareast-font-family:"Times New Roman"'>Local
+     Discovery Server;<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The sample applications are
+available with source code. The stack and development toolkits are available
+only as binaries. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Release Notes<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='mso-bidi-font-weight:
+bold'>This release is the same as Build 207 except it fixes a bug in the binary
+installer that corrupted the installation and made it impossible to
+install/uninstall the components without using a system restore point.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><span style='mso-bidi-font-weight:
+bold'>Prior versions must be uninstalled first (the installer checks this now).<i
+style='mso-bidi-font-style:normal'><o:p></o:p></i></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='text-autospace:none'>This release of the SDK supports
+the release candidates for Part 4 and Part 6. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Users should use <a
+href="https://www.opcfoundation.org/mantis/main_page.php">Mantis</a> to report
+any issues/bugs. This will also allow users to find issues identified by
+others.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Current API Status</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>There are a number of different APIs embedded within the SDK
+which are in different states of development.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Each of these APIs has a different development status: </p>
+
+<p class=MsoNormal>&nbsp;<o:p></o:p></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=495
+ style='width:371.25pt;border-collapse:collapse;mso-yfti-tbllook:1184;
+ mso-padding-alt:0in 0in 0in 0in' id=table4>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=94 valign=top style='width:70.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Development </p>
+  </td>
+  <td width=373 valign=top style='width:279.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>The associated specification
+  is not released and the feature set is not complete. Changes to APIs in this
+  state are quite likely.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=94 valign=top style='width:70.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Testing </p>
+  </td>
+  <td width=373 valign=top style='width:279.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>The feature set is complete and
+  basic functional tests have been completed. Changes to APIs in this state are
+  possible (due to bugs or refactoring).</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=94 valign=top style='width:70.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta </p>
+  </td>
+  <td width=373 valign=top style='width:279.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>The feature set is complete
+  and more exhaustive testing has started. Changes to APIs in this state only
+  happen if absolutely necessary.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td width=94 valign=top style='width:70.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Released </p>
+  </td>
+  <td width=373 valign=top style='width:279.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Testing is complete. Changes
+  to APIs in this state will not happen (i.e. new interfaces/subclasses are
+  created).</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Server SDK APIs sets and their current status are:</p>
+
+<p class=MsoNormal>&nbsp;<o:p></o:p></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=495
+ style='width:371.25pt;border-collapse:collapse;mso-yfti-tbllook:1184;
+ mso-padding-alt:0in 0in 0in 0in' id=table3>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>IServer</span>/<span
+  class=SpellE>IServerEndpoint</span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>StandardServer</span>/<span
+  class=SpellE>IServerInternal</span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Session</p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>NodeManager</span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>NodeSource</span>/<span
+  class=SpellE>BaseEvent</span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Testing</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Subscription/<span
+  class=SpellE>MonitoredItem</span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>Alarms/Conditions/State
+  Machine</span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Development</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>Historian</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Development</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='mso-fareast-font-family:
+  "Times New Roman"'>ApplicationConfiguration</span></span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>Testing</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal>The Client SDK APIs sets and their current status are:</p>
+
+<p class=MsoNormal>&nbsp;<o:p></o:p></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=495
+ style='width:371.25pt;border-collapse:collapse;mso-yfti-tbllook:1184;
+ mso-padding-alt:0in 0in 0in 0in' id=table5>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>ClientBase</span>/<span
+  class=SpellE>IChannel</span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Session</p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Subscription</p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Beta</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Condition and Events </p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Development</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+  <td width=221 valign=top style='width:165.75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='mso-fareast-font-family:
+  "Times New Roman"'>ApplicationConfiguration</span></span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=246 valign=top style='width:184.5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>Testing</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p><b><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>Summary
+of Major Changes</span></b></p>
+
+<p><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>1) Publish service
+now supports the <span class=SpellE>MaxNotificationsPerPublish</span>
+parameter.<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>2) Updated <span
+class=SpellE>ModellingRules</span> to conform <span class=GramE>with</span>
+Part 3 (New -&gt; <span class=SpellE>Manadatory</span>, <span class=SpellE>OptionalNew</span>
+-&gt; Optional, Shared -&gt; <span class=SpellE>MandatoryShared</span>)<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>3) Renamed
+the “<span class=SpellE>MonitorItemId</span>” parameter to “<span class=SpellE>MonitoredItemId</span>”<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>4) Added UA
+Security Library which includes a class which generates self-signed application
+instance certificates.<o:p></o:p></span></p>
+
+<p style='tab-stops:712.45pt'><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>5)
+The install programs automatically create self-signed certificates for all
+applications (binary installer only).<o:p></o:p></span></p>
+
+<p style='tab-stops:712.45pt'><span style='font-size:10.0pt;font-family:"Arial","sans-serif"'>6)
+The UA Local Discovery Server is automatically installed as an NT Service
+(binary installer only).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Known Issues</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>IIS hosted servers have not been
+tested.</p>
+
+<p class=MsoNormal style='text-autospace:none'><span class=GramE>Read,</span>
+Write services do not implement the <span class=SpellE>IndexRange</span>
+parameter for multi-dimensional arrays and <span class=SpellE>ByteStrings</span>.</p>
+
+<p class=MsoNormal style='text-autospace:none'>The Alarms and Conditions
+specification is a long way from release and the code reflects that.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Installation</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The SDK requires the <a
+href="http://www.microsoft.com/downloads/details.aspx?FamilyId=10CC340B-F857-4A14-83F5-25634C3BF043&amp;displaylang=en">.NET
+3.0 SP1 runtime</a>. It should run on any Microsoft operating system that
+supports the .NET 3.0 runtime. It has been tested with Windows XP at this time.
+</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The Binaries installer requires
+that the <a
+href="http://www.opcfoundation.org/Downloads.aspx?CM=1&amp;CN=KEY&amp;CI=280&amp;CU=10">OPC
+Core Components Redistributable</a> be installed first. Note that this package
+is installed by many OPC applications.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The SDK will install on Vista,
+however, the UAC (User Access Control) must be turned off to install the application
+certificates. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>If the SDK installer does not
+run on Vista then you must turn on IIS6 compatibility mode. You form the 'Turn
+windows features on or off' dialog and check the IIS6 Management components.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The SDK also requires that IIS
+be installed. If IIS is installed after installing the .NET runtime then it may
+be necessary to run the following command in a command shell:</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>%SystemRoot%\Microsoft.NET\Framework\v2.0.50727\aspnet_regiis.exe
+–r</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'>Building the sample applications
+requires the <a
+href="http://www.microsoft.com/downloads/details.aspx?FamilyId=C2B1E300-F358-4523-B479-F53D234CDCCF&amp;displaylang=en">Windows
+SDK</a>.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Developers using Visual Studio
+2005 should install <a
+href="http://msdn2.microsoft.com/en-us/vstudio/aa718695.aspx">Service Pack 1</a>
+and the <a
+href="http://www.microsoft.com/downloads/details.aspx?FamilyId=F54F5537-CC86-4BF5-AE44-F5A1E805680D&amp;displaylang=en">.NET
+3.0 extensions</a>.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The SDK is distributed as a ZIP
+file that contains a program called setup.exe and an MSI file. On Vista you
+must unzip the files into their own directory and run the setup.exe. Trying to
+run the MSI directly will not work.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Using the COM-DA wrapper
+requires <span class=GramE>a the</span> COM DA 3.00 Sample Servers. These can
+be downloaded from the OPC Foundation website <a
+href="http://www.opcfoundation.org/Downloads.aspx?CM=1&amp;CN=KEY&amp;CI=274&amp;EBP=0&amp;SRT=ModificationTime&amp;DES=Y&amp;SE1=ReleaseStatus&amp;FV1=Released&amp;FT1=&amp;SE2=Title&amp;FV2=Custom&amp;FT2=%25Sample%25">here</a>.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Configuration</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The sample applications require application
+instance certificates which must be installed in the local machine certificate
+store. The install program placed a batch file in the Programs Menu under
+&quot;<b>OPC Foundation | UA SDK 1.00</b>&quot; that will create and install
+test certificates. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Note that you must turn off the
+UAC if you want to use the batch file with Vista.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>There is an MMC plug-in that
+allows computer administrators to browse the certificate store and manage the
+certificates in it. It can be launched with the following steps:</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>1)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Run mmc.exe</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>2)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Click Files | Add/Remove Snap <span class=GramE>In</span>…</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>3)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Click Add...</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>4)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Select “Certificates” and click “Add”</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>5)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Select “Computer account” and click “Next”.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>6)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Select “Local computer” and click “Next”</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>7)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Click “Close”</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;text-autospace:
+none'>8)<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Click “OK”</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>If the script ran successfully
+there should be two UA sample certificates in the “Personal” folder.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>If the script did not run then
+you can import the certificates manually by using the certificate import
+wizard. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>You can start this wizard by
+right clicking on a store folder and clicking &quot;All Tasks | Import<span
+class=GramE>..&quot;</span>. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><span class=SpellE><span
+class=GramE>The</span></span><span class=GramE> are</span> three files to
+import which are placed in the '<b>UA SDK 1.00\Install</b>' directory. You will
+need to change the file type to 'Personal Information Exchange (*.pfx)' to see the
+files. </p>
+
+<p class=MsoNormal style='text-autospace:none'>These files are called
+UASampleRoot.pfx, UASampleClient.pfx and UASampleServer.pfx</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>After selecting a file you will
+be prompted for a password which is: password</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The <span class=SpellE>UASampleServer</span>
+and <span class=SpellE>UASampleClient</span> certificates must go into the Personal
+store.</p>
+
+<p class=MsoNormal style='text-autospace:none'>The <span class=SpellE>UASampleRoot</span>
+certificate must go in the Trusted Root Certification Authorities store.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Confirm that the certificate
+should be placed in the store <span class=GramE>your</span> selected and finish
+the wizard.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Sample Applications</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>There are two sample applications
+bundled with the SDK:</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>&quot;UA Sample Client&quot; is
+a UA client and server application with a GUI (the client and server are
+independent of each other)</p>
+
+<p class=MsoNormal style='text-autospace:none'>&quot;UA Sample Server&quot; is
+a standalone UA server application without a GUI</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The applications can be launched
+from &quot;<b>OPC Foundation | UA SDK 1.00</b>&quot; directory in the Programs
+menu. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The<i> </i>UA Sample Server
+application can also be hosted inside IIS. The installer creates and a virtual
+directory for the IIS hosted server here: <a
+href="http://localhost/UASampleService/Service.svc">http://localhost/UASampleService/Service.svc</a></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Clicking on that link should
+display an ASP .NET test page in a web browser.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>If the ASP .NET test page does
+not appear it is a problem with your ASP .NET configuration. This <a
+href="http://msdn2.microsoft.com/en-us/library/ms752241.aspx">page</a> may
+help.</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Running the Local Discovery
+Server</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The Local Discovery Server (LDS)
+must be started manually. The installer places a shortcut in the <span
+class=SpellE>the</span> Programs Menu. This process is used by the client
+applications to discover servers running on a machine. Note that, unlike COM,
+UA servers *must* be started manually before a client can connect to them.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>If you get <span class=GramE>a</span>
+error starting the LDS then that likely means an instance of the LDS is already
+running. Try restarting IIS if no process appears to exist.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Selecting a Server</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><i>&nbsp;</i></p>
+
+<p class=MsoNormal style='text-autospace:none'>The UA Sample Client can connect
+to any of the sample servers. When this application is launched a drop down menu
+with several URL appears. The URLs of the sample servers are: </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=133 valign=top style='width:99.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>UA Sample Client</p>
+  </td>
+  <td width=457 valign=top style='width:342.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>http://localhost:6000/UA/SampleClient</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=133 valign=top style='width:99.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>UA Sample Server</p>
+  </td>
+  <td width=457 valign=top style='width:342.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>http://localhost:5000/UA/SampleServer</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width=133 valign=top style='width:99.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>IIS Hosted Server</p>
+  </td>
+  <td width=457 valign=top style='width:342.9pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>http://localhost/UASampleService/Service.svc</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Note that you must manually
+start the UA Sample Server application before you can connect to it. If the UA
+Sample Server application is running an OPC icon should be visible in the tray
+of the task bar. Right clicking on this icon will allow you to stop the
+application.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>You connect to a server by
+selecting it in the drop down and click on the “Connect” button.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>You will also see additional
+text after the URL that indicates what security and/or message encoding is
+being used. Servers may support multiple endpoints with different security
+settings. These endpoints can be found by clicking on the '&lt;Browse<span
+class=GramE>..&gt;' option and clicking on the 'Discover' button when the
+endpoints for a server are in view.</span></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Choosing an Endpoint</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Any valid URL can be typed into
+the address bar. However, the client assumes that the discovery endpoint for
+the server can be constructed by appending '/discovery' to the end of the URL
+typed in. The client will not be able to connect if the server does not have a
+discovery endpoint at that address. It is possible to manually enter the <span
+class=SpellE>the</span> Discovery URLs for the endpoint by selecting &lt;Browse<span
+class=GramE>..</span>&gt; <span class=GramE>in</span> the drop down menu.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>After the “Connect” button is
+clicked the client calls the <span class=SpellE>GetEndpoints</span> service on
+the discovery endpoint for the server. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Selecting an endpoint URL
+starting with ‘http:’ will use XML Web Services for communication. Selecting a
+URL starting with ‘opc.tcp’ will use UA Native Binary for communication. Note
+that the current release of the UA Native Binary stack profile does not
+implement security even though the user interface claims it is being used.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The XML Web Services stack
+profile allows clients to use either pure XML messages or UA binary encoded
+messages. The setting can be changed in the configuration for the endpoint. The
+&lt;Browse<span class=GramE>..</span>&gt; <span class=GramE>entry</span> in the
+dropdown allows you to edit the <span class=SpellE>EndpointDescription</span>
+and <span class=SpellE>EndpointConfiguration</span>.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The &lt;Browse...&gt; will also
+you to browse servers on the network using the LDS.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Creating a Session</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The ‘Open Session’ dialog
+appears after clicking 'Connect'. This dialog allows you specify a name for the
+session and the client’s user credentials. The authentication modes depend on
+the endpoint. Only options available for the current endpoint are available. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The name of the session is only
+used as the name of the node containing the diagnostic information for the
+session in the server address space. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The user name/password may be
+left blank. If a user name is specified then it must be a valid windows account
+on the server machine. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Click “OK” to connect to server.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>At this point data will appear
+in the controls. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The ‘Session Panel’ is on the
+left and it displays the active sessions and any subscriptions that they have. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The ‘Browse Panel’ is on the
+right and it displays the Object instances in the server address space. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The ‘Notification Panel’ is at
+the bottom and it displays the contents of Publish responses returned from the
+server.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Browsing the Server Address
+Space</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>The client browses the Objects
+folder immediately after creating a session and displays the results in the
+right hand panel. The top level nodes are:</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Server</p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Diagnostics information
+  specified in Part 5</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Test Object</p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Simulation nodes with are part
+  of the UA Server reference implementation</p>
+  <p class=MsoNormal style='text-autospace:none'>(not operational in this
+  release)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Vendors</p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Contains metadata describing
+  equipment vendors used in the Boiler example.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>BoilerArea</span></p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>An alarm area containing the
+  sample Boilers</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Area1</p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Another alarm area containing
+  the sample Boilers</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Boiler1</p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>A sample Boiler. </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+  <td width=91 valign=top style='width:.95in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Boiler2</p>
+  </td>
+  <td width=499 valign=top style='width:5.2in;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>A second instance of the
+  sample Boiler. </p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The Boiler example is described
+in detail in the presentations from the UA <span class=SpellE>DevCon</span>.
+The overview slide can be found <a href="BoilerOverview.jpg">here</a>. The
+nodes that appear in the address space for each boiler are <a
+href="BoilerModel.gif">here</a>.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Clicking on the plus sign next
+to any of these nodes with cause the client to issue a Browse request and display
+the results as children of the node. By default, the client only follows
+forward hierarchical references. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Right clicking on any node will
+bring up a context menu. The actions in this menu do the following:</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Browse Options….</p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Displays dialog that sets the
+  options passed to the Browse request.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Show References</p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Adds nodes representing the
+  references into the tree.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>View Attributes…</p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Displays the values of all
+  attributes and properties for the node. </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Refresh</p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Re-issues the Browse request
+  with the current options.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>It is also possible to open a
+new browse window by right clicking on the session in the left hand panel. The
+menu that appears provides a number of choices for a starting node. Selecting “All”
+will display all nodes in the address space.</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Changing the Browse Options</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The UA address space is a full
+mesh network, however, such a network is difficult to render in a typical two
+dimensional user interface. For that reason, the sample client uses filters
+passed to the Browse request to limit the information displayed in any given
+view. The user can change these filters by following these steps:</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Right click on any node and
+select ‘Show References’. This will add an extra node into the tree control
+that displays the reference type for the reference between two nodes.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Right click on the ‘<b>Boiler1</b>’
+node in the address space and select ‘Browse Options’.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Set the Reference Type to
+‘References’. This tells the server to return all references from the node
+being browsed. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The client will re-issue the
+Browse request when the OK button is pressed. The tree control should now
+display a child folder called ‘<span class=SpellE>HasTypeDefinition</span>’. In
+that folder there should be a node called ‘<span class=SpellE>BoilerType</span>’.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Before changing the browse
+options the only references displayed were subtypes of the ‘Hierarchical
+References’ reference type. In this case, the only references from Boiler1 that
+met these criteria were the ‘<span class=SpellE>HasComponent</span>’
+references. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Using Views</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Server defined Views offer a way
+to browse a sub-set of the address space that the server feels is useful to
+some clients. The sample servers provide a single view called ‘<span
+class=SpellE><b>BoilerView</b></span>’. This view can be browsed by
+right-clicking on the session in the left-hand tree and selecting <b>Browse |
+Server Defined Views | <span class=SpellE>BoilerView</span></b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The <span class=SpellE>BoilerView</span>
+displays the sample boilers and their components. References to the type model
+do not appear in this view.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Reading Data</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>Reading data can be done in a
+number of ways. The simplest approach uses the ‘View Attributes’ option that is
+available in the context menu when browsing the address space. If the node is a
+Variable that allows read access then the ‘Read’ option will appear in the
+context menu.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The node ‘<b>Area1/
+Boiler1/LC1001/Measurement</b>’ is readable. Find it and click Read. This
+should display the Read dialog. Clicking the ‘Read’ button will send the
+request and display the results.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>You can add more nodes to the
+request by right-clicking in the top panel of the Read dialog. The ‘Select
+Nodes…’ option brings up the Select Node dialog. Note that double clicking on a
+node in a tree control simply expands or collapses the tree. If you wish to
+select a node you must right-click and click on the ‘Select Item’ or ‘Select
+Children’ options.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>It is also possible to access
+the Read dialog from the Session Panel.</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Writing Data</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>Writing can also be done from
+the Browse Panel. Selecting any Variable that allows write access will cause
+the ‘Write’ option to appear in the context menu.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The node ‘<b>Area1/
+Boiler1/LC1001/<span class=SpellE>SetPoint</span>’</b> is writable. Find it and
+click Write. This should display the Write dialog. Clicking the ‘Write’ button
+will send the request and display the results.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Double clicking on a value in
+the Write dialog will allow you to change it.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>It is also possible to access
+the Write dialog from the Session Panel.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Creating Subscriptions</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>It is possible to create new
+subscriptions by right-clicking on a session in the Session Panel. This will
+bring up the Subscription Parameters dialog. Clicking OK brings up an empty
+Subscription. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>At this point notification
+messages should start to appear in the Notifications Panel. These are the keep <span
+class=GramE>alive</span> messages for the subscription and tell the client and
+server that communication is still functional even if there are notifications
+available.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>You can <span class=GramE>monitored</span>
+items to the subscription by choosing the ‘Add Items’ in the main menu. The
+node ‘<b>Area1/ Boiler1</b>' produces events so try adding it to the
+subscription. After about 20 seconds the first event notification should appear
+in the Subscription window.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>It is possible to alter the
+fields returned in the event notification by selecting a monitored item and
+clicking the ‘Set Filter’ command from the context menu.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Try adding the children of ‘<b>Area1/
+Boiler1/CC1001</b>’ to the subscription. These are all variables and they
+should change each time the subscription publish interval expires.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Calling Methods</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Each instance of the sample
+boilers has a method called ‘<span class=SpellE>SetSimulationMode</span>’. It
+can be called by right-clicking on the method node and selecting the Call
+option. This brings up the call dialog which displays the input and output
+parameters for the method.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Double-clicking on an input parameter
+will allow you to change its value. You must specify a valid value for every
+parameter in this example.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Try setting the ‘<span
+class=SpellE>RequestedMode</span>’ to <span class=GramE>False</span> – this
+will stop the simulation. You can verify that the simulation has stopped by
+reading or subscribing to variables for the same boiler. They do <span
+class=GramE>not change when the simulation is nor</span> running.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Configuring the COM Wrapper</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The <span class=SpellE>app.config</span>
+file for each of the sample applications contains a configuration section
+called <span class=SpellE>Opc.Ua.SampleServer</span>. The section has the
+following elements which control the wrapper:</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;<o:p></o:p></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:0in 0in 0in 0in'
+ id=table1>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>NamespaceUri</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>The URI for the namespace used
+  by the wrapper.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>BrowseName</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>The browse name of the folder
+  that contains the wrapped server <span class=GramE>address</span> space.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>Url</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>The URL of the COM server.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td width=127 valign=top style='width:95.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'><span class=SpellE>SeperatorChars</span></p>
+  </td>
+  <td width=463 valign=top style='width:347.4pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='text-autospace:none'>Specifies the separator
+  characters that the server uses for its item ids. This field is not required
+  and is only used to improve performance when it is possible to extract the
+  browse name from an item id.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>Note that the COM server must be
+accessible to the server process. This is a particular concern when running the
+IIS hosted version of the server which runs using the ASPNET account.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Using Conditions</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The subscription window has a menu
+option called 'Conditions' that will display all of the condition events
+captured by the subscription filters. Subscribing to the 'Boiler1' object will
+display 4 active conditions: a generic Condition, a Dialog Condition, an
+Acknowledgeable Condition and a Level Alarm. The methods available to for each
+condition are shown in the context menu. </p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>The <span class=SpellE>LevelAlarm</span>
+can be controlled by writing to the ‘<b>Area1/ Boiler1/LC1001/<span
+class=SpellE>SetPoint</span>’</b> node. Valid values are between 0 and 10.
+Alarms will go off if the value is &lt;=3 or &gt;=7.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'><b>Contributors</b></p>
+
+<p class=MsoNormal style='text-autospace:none'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='text-autospace:none'>The OPC Foundation would like to
+acknowledge the contributions made by the following companies towards the
+development of this deliverable.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal>Christian <span class=SpellE>Zugfil</span>, Matthias Damm</p>
+
+<p class=MsoNormal><span class=SpellE><span class=GramE>ascolab</span></span></p>
+
+<p class=MsoNormal><a href="http://www.ascolab.com">http://www.ascolab.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Stefan-Helmut <span class=SpellE>Leitner</span></p>
+
+<p class=MsoNormal>ABB</p>
+
+<p class=MsoNormal><a href="http://www.abb.com">http://www.abb.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span class=SpellE>Alisher</span> <span class=SpellE>Maksumov</span></p>
+
+<p class=MsoNormal><span class=SpellE>OSIsoft</span></p>
+
+<p class=MsoNormal><a href="http://www.osisoft.com/">http://www.osisoft.com</a></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal>Jan Burian, Rudolf Griessl</p>
+
+<p class=MsoNormal><span class=SpellE>Iconics</span>, Inc.</p>
+
+<p class=MsoNormal><a href="http://www.softwaretoolbox.com/">http://</a><a
+href="http://www.iconics.com">www.iconics.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>John Hoffman</p>
+
+<p class=MsoNormal><span class=SpellE>TimeKeeping</span> Systems Inc</p>
+
+<p class=MsoNormal><a href="http://www.guard1.com">http://www.guard1.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Nathan <span class=SpellE>Pocock</span></p>
+
+<p class=MsoNormal>Software Toolbox, Inc.</p>
+
+<p class=MsoNormal><a href="http://www.softwaretoolbox.com/">http://www.softwaretoolbox.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Krishna <span class=SpellE>Bandaru</span></p>
+
+<p class=MsoNormal><span class=GramE>Tata Consulting Services Ltd.</span></p>
+
+<p class=MsoNormal><a href="http://www.tcs.com/">http://www.tcs.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Mark <span class=SpellE>Timperley</span></p>
+
+<p class=MsoNormal>Invensys</p>
+
+<p class=MsoNormal><a href="http://www.invensys.com/">http://www.invensys.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Alexander <span class=SpellE>Gdalevich</span></p>
+
+<p class=MsoNormal><span class=SpellE>Cognex</span> Corporation</p>
+
+<p class=MsoNormal style='text-autospace:none'><a href="http://www.cognex.com/">http://www.cognex.com</a>
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Craig <span class=SpellE>McMurtry</span></p>
+
+<p class=MsoNormal>Microsoft Corporation</p>
+
+<p class=MsoNormal><a href="http://www.microsoft.com">http://www.microsoft.com</a></p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal><span class=SpellE>Yo</span> Funaki</p>
+
+<p class=MsoNormal>Yokogawa</p>
+
+<p class=MsoNormal><a href="http://www.yokogawa.com">http://www.yokogawa.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

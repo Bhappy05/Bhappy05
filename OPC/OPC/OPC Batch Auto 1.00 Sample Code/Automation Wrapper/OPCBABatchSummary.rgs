@@ -1,0 +1,26 @@
+HKCR
+{
+	OPCBatchAuto.OPCABatchSummary.1 = s 'OPCABatchSummary Class'
+	{
+		CLSID = s '{01253844-212E-11D4-9015-00C04FA36AD7}'
+	}
+	OPCBatchAuto.OPCABatchSummary = s 'OPCABatchSummary Class'
+	{
+		CLSID = s '{01253844-212E-11D4-9015-00C04FA36AD7}'
+		CurVer = s 'OPCBatchAuto.OPCABatchSummary.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {01253844-212E-11D4-9015-00C04FA36AD7} = s 'OPCABatchSummary Class'
+		{
+			ProgID = s 'OPCBatchAuto.OPCABatchSummary.1'
+			VersionIndependentProgID = s 'OPCBatchAuto.OPCABatchSummary'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{01253831-212E-11D4-9015-00C04FA36AD7}'
+		}
+	}
+}

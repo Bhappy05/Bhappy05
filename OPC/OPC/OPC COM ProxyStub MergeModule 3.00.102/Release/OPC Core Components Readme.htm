@@ -1,0 +1,610 @@
+<html>
+  <head>
+    <title>OPC Core Components</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+  </head>
+  <body>
+    <table cellSpacing="4" cellPadding="4" width="100%" border="0">
+      <tbody>
+        <tr>
+          <td valign="middle" align="left">
+            <p style="tab-stops: 292.5pt 315.0pt 319.5pt" align="center"><font face="Arial" color="#800000" size="4"><b>OPC 
+                  Core Components 3.00</b></font></p>
+            <p style="tab-stops: 292.5pt 315.0pt 319.5pt" align="center"><b>
+			<font face="Arial" color="#800000">April 15, 2007</font></b></p>
+            <p><font face="Verdana" size="2"><a name="Overview"></a></font><b><font face="Arial" size="3">Overview</font></b></p>
+            <p><font face="Verdana" size="2">This release of the Core Components 
+			adds .NET RCWs which support .NET 2.0. The merge modules have also 
+			been rebuilt with Visual Studio 2005 which may resolve the 
+			interoperability problems with the existing merge modules. The Core 
+			Components Redistributables installer detects the versions of .NET 
+			that are installed on the system and only installs the appropriate 
+			.NET RCWs. The Core Components Redistributables installer also 
+			detects whether Visual Studio is installed on the machine and places 
+			the files used to build with the RCWs in the 'Common Program Files' 
+			directory.</font></p>
+			<p><font face="Verdana" size="2">The latest version of this document always on the 
+                OPC foundation 
+			<a href="http://www.opcfoundation.org/Downloads.aspx?CM=1&CN=KEY&CI=280&EBP=0&SRT=ModificationTime&DES=Y&SE1=ReleaseStatus&FV1=Released&FT1=&SE2=&FV2=&FT2=">website</a>.&nbsp;</font></p>
+            <p><font face="Verdana" size="2">Any use of the <i>OPC Core Components</i> is 
+                subject to the terms the <a href="http://opcfoundation.org/Downloads/LicenseAgreement.asp">
+                  OPC Foundation License Agreement</a>.</font></p>
+            <p><font face="Verdana" size="2">The <i>OPC Core Components</i> consists of all 
+                shared OPC modules that need to be distributed by multiple vendors. These 
+                modules include DCOM proxy/stub libraries, the OPC Server Enumerator, .NET 
+                wrappers, etc. The <i>OPC Core Components </i>installer packages bundle modules 
+                from all released specifications for convenience. OPC Foundation Members, who 
+                have access to the source code version of the Core Components, may modify the 
+                installation projects to suit their own needs.</font></p>
+            <p><font face="Verdana" size="2">At this time the following modules are included in 
+                this distribution:</font></p>
+            <table cellSpacing="0" cellPadding="2" width="100%" border="1">
+              <tbody>
+                <tr>
+                  <td align="center" bgColor="#000080" width="25%">
+                    <p align="center"><b><font face="Verdana" color="#ffffff" size="2">File</font></b></p>
+                  </td>
+                  <td align="center" bgColor="#000080">
+                    <p align="center"><b><font face="Verdana" color="#ffffff" size="2">Description</font></b></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">O<O:P>PC Common 1.10</font></td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL; .NET Wrapper; 
+                      IDL/Headers; Project Source Code<O:P></font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Server Enumerator 1.10<O:P>
+                    </font>
+                  </td>
+                  <td align="left"><font face="Verdana" size="2">DCOM EXE Server; IDL/Headers; 
+                      Project Source Code<O:P></font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Data Access 2.05/3.00<b><O:P>
+                      </b></font>
+                  </td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL; .NET Wrapper; 
+                      IDL/Headers; Project Source Code<O:P></font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Data eXchange 1.00<b><O:P>
+                      </b></font>
+                  </td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL; .NET Wrapper; 
+                      WSDL/IDL/Headers; Project Source Code<O:P></font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Alarms &amp; Events 1.10</font></td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL;
+                    .NET Wrapper; IDL/Headers; Project 
+                      Source Code<O:P>
+                      &nbsp;</font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Batch 2.00</font></td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL; .NET Wrapper;
+                    IDL/Headers; Project 
+                      Source Code</font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Historical Data Access 1.10</font></td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL; .NET Wrapper; 
+                      IDL/Headers; Project Source Code</font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Commands 
+					1.00</font></td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL; .NET Wrapper; 
+                      IDL/Headers; Project Source Code</font></td>
+                </tr>
+                <tr>
+                  <td width="25%"><font face="Verdana" size="2">OPC Security</font></td>
+                  <td align="left"><font face="Verdana" size="2">Proxy/Stub DLL; .NET Wrapper; 
+                      IDL/Headers; Project Source Code</font></td>
+                </tr>
+              </tbody>
+            </table>
+            <p><font face="Verdana" size="2"><a name="Version"></a></font><b><font face="Arial" size="3">Version 
+                  History</font></b></p>
+            <table cellSpacing="0" cellPadding="2" width="100%" border="1">
+              <tbody>
+                <tr>
+                  <td align="center" width="10%" bgColor="#000080"><b><font face="Verdana" color="#ffffff" size="2">Date</font></b></td>
+                  <td align="center" width="10%" bgColor="#000080"><b><font face="Verdana" color="#ffffff" size="2">Version</font></b></td>
+                  <td align="center" bgColor="#000080">
+                    <p align="center"><b><font face="Verdana" color="#ffffff" size="2">Description</font></b></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-01-31</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.00.0.07</font></td>
+                  <td align="left"><font face="Verdana" size="2">First release.</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-02-06</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.01.0.00</font></td>
+                  <td align="left"><font face="Verdana" size="2">Incorporates currently released 
+                      shared modules for all specifications.</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-02-12</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.02.1.00</font></td>
+                  <td align="left"><font face="Verdana" size="2">Updated to reflect changes in the 
+                      source code tree.</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-02-19</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.10.1.00</font></td>
+                  <td align="left"><font face="Verdana" size="2">Incorporates a merge module for the 
+                      SDK.</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-02-27</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.10.1.02</font></td>
+                  <td align="left"><font face="Verdana" size="2">Removed dependency on .NET Framework 
+                      from the Binaries installers; Added OPC DX components.</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-03-02</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.10.1.03</font></td>
+                  <td align="left"><font face="Verdana" size="2">Fixes a bug during un-registration 
+                      of OpcEnum; OpcEnum now registers itself as a service.</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-03-03</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.10.1.04</font></td>
+                  <td align="left"><font face="Verdana" size="2">Added fields for natural byte 
+                      alignment in DA and DX structures.&nbsp;</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-03-04</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.10.1.05</font></td>
+                  <td align="left"><font face="Verdana" size="2">Fixed problem with DX .NET 
+                      wrapper.&nbsp;</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%"><font face="Verdana" size="2">2003-03-05</font></td>
+                  <td align="center" width="10%"><font face="Verdana" size="2">1.10.1.06</font></td>
+                  <td align="left"><font face="Verdana" size="2">Fixed problem incorrect assembly 
+                      version in Common .NET wrapper.&nbsp;</font></td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%" valign="top"><font face="Verdana" size="2">2003-06-04</font></td>
+                  <td align="center" width="10%" valign="top"><font face="Verdana" size="2">1.12.1.01</font></td>
+                  <td align="left"><font face="Verdana" size="2">Incorporates interface changes into 
+                      the DA and DX .NET wrappers.</font>
+                    <p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WORD-SPACING: 0px"><font face="Verdana" size="2">Removed 
+                        dependency on .NET Framework from the SDK installers.&nbsp;</font></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" width="10%" valign="top"><font face="Verdana" size="2">2003-06-30</font></td>
+                  <td align="center" width="10%" valign="top"><font face="Verdana" size="2">2.00.1.00</font></td>
+                  <td align="left">
+                    <p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><font face="Verdana" size="2">Updated 
+                        to build with VS .NET 2003 and .NET Framework 1.1.</font>
+                    </p>
+                    <p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><font face="Verdana" size="2">Added 
+                        project source code for HDA, Batch and Security proxy/stubs.</font></p>
+                    <p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><font face="Verdana" size="2">Added 
+                        .NET Wrappers for HDA and Security.</font></p>
+                  </td>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2003-08-12</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.1.02</FONT></TD>
+                  <TD align="left"><FONT face="Verdana" size="2">Minor update for administrative 
+                      purposes.&nbsp;</FONT></TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2003-10-14</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.1.03</FONT></TD>
+                  <TD align="left"><font face="Verdana" size="2">Added constants
+                    used for Complex Data into the Data Access IDL and error
+                    header files.&nbsp;</font>
+                    <p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><font face="Verdana" size="2">Added
+                    a registry key in the SDK merge module that makes the RCWs
+                    visible inside VS .NET.</font></p>
+                  </TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2003-12-02</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.1.04</FONT></TD>
+                  <TD align="left"><font face="Verdana" size="2">Added .NET
+                    Wrappers for AE and Batch.</font>
+                  </TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2004-02-04</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.1.06</FONT></TD>
+                  <TD align="left"><font face="Verdana" size="2">Minor updates
+                    to the HDA proxy/stub library.</font>
+                  </TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2004-09-01</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.2.00</FONT></TD>
+                  <TD align="left"><font face="Verdana" size="2">Fixed name
+                    conflict for modules defined in the DA, AE, DX and Batch
+                    proxy/stub type libraries.<br>
+                    Fixed array marshalling problem for IEnumXXX interfaces
+                    defined in the Comn, Da, Ae and Hda RCWs</font>
+                  </TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2004-11-22</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.2.10</FONT></TD>
+                  <TD align="left"><font face="Verdana" size="2">Fixed namespace
+                    for AE, Batch and Security RCWs.<br>
+                    Fixed bugs in the AE RCW.<br>
+                    Changed byte packing for structs containing VARIANTs from 8
+                    to 4.</font>
+                  </TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2004-12-01</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.2.20</FONT></TD>
+                  <TD align="left"><font face="Verdana" size="2">Updated OpcEnum
+                    to use the DCOM configuration APIs from the Windows XP SP2
+                    Platform SDK.<br>
+                    No changes in behavior for OSes earlier than XP SP2 or W2003
+                    SP1.&nbsp;</font>
+                  </TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2005-11-25</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2.00.2.30</FONT></TD>
+                  <TD align="left"><font face="Verdana" size="2">Added the 
+					PrimaryInteropAssembly attribute to all .NET RCWs.</font></TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2007-02-10</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%">
+					<font face="Verdana" size="2">3.00.1.00</font></TD>
+                  <TD align="left"><font face="Verdana" size="2">Rebuilt all 
+					binaries with Visual Studio 2005<br>
+					Linked .NET RCWs to .NET 2.0</font></TD>
+                </tr>
+                <tr>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2007-03-06</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%">
+					<font face="Verdana" size="2">3.00.1.01</font></TD>
+                  <TD align="left"><font face="Verdana" size="2">Fixed bug in 
+					OpcEnum introduced by the port to VS2005.</font></TD>
+                </tr>
+                <TR>
+                  <TD vAlign="top" align="center" width="10%"><FONT face="Verdana" size="2">2007-04-15</FONT></TD>
+                  <TD vAlign="top" align="center" width="10%">
+					<font face="Verdana" size="2">3.00.1.02</font></TD>
+                  <TD align="left"><font face="Verdana" size="2">Fixed problems 
+					with the installers and UAC on Vista. <br>
+					OpcEnum now registers itself as an NT service.<br>
+					Binaries did not 
+					change.</font></TD>
+                </TR>
+              </tbody>
+            </table>
+            <p><font face="Verdana" size="2"><a name="Distribution"></a></font><b><font face="Arial" size="3">Distribution</font></b></p>
+            <p><font face="Verdana" size="2">The core components are distributed in five ways:<O:P>
+                &nbsp;</font></p>
+            <table cellSpacing="0" cellPadding="2" width="100%" border="1" height="135">
+              <tbody>
+                <tr>
+                  <td align="left" bgColor="#000080" width="25%" height="16">
+                    <p align="center"><b><font face="Verdana" color="#ffffff" size="2">File</font></b></p>
+                  </td>
+                  <td align="left" bgColor="#000080" height="16">
+                    <p align="center"><b><font face="Verdana" color="#ffffff" size="2">Description</font></b></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="25%" height="16"><font face="Verdana" size="2">
+					OPC Core Components Redistributable</font></td>
+                  <td align="left" height="16"><font face="Verdana" size="2">Installs 
+					the COM proxy/stubs, OpcEnum and the .NET 1.1 and 2.0 RCWs.</font></td>
+                </tr>
+                <tr>
+                  <td width="25%" height="16"><font face="Verdana" size="2">
+					OPC Core Components Source Code</font></td>
+                  <td align="left" height="16"><font face="Verdana" size="2">Installs 
+					the source code for the COM proxy/stubs, OpcEnum and the 
+					.NET 1.1 and 2.0 RCWs.</font></td>
+                </tr>
+				<tr>
+                  <td width="25%" height="16"><font face="Verdana" size="2">
+					OPC COM ProxyStub Merge Module</font></td>
+                  <td align="left" height="16"><font face="Verdana" size="2">A 
+					merge module containing the COM proxy/stubs and OpcEnum (no 
+					dependency on the .NET runtime).</font></td>
+                </tr>
+				<tr>
+                  <td width="25%" height="16"><font face="Verdana" size="2">
+					OPC .NET 1.1 RCWs Merge Module</font></td>
+                  <td align="left" height="16"><font face="Verdana" size="2">A 
+					merge module containing the .NET 1.1 RCWs. </font></td>
+                </tr>
+				<tr>
+                  <td width="25%" height="16"><font face="Verdana" size="2">
+					OPC .NET 2.0 RCWs Merge Module</font></td>
+                  <td align="left" height="16"><font face="Verdana" size="2">A 
+					merge module containing the .NET 2.0 RCWs. </font></td>
+                </tr>
+              </tbody>
+            </table>
+            <p><font face="Verdana" size="2"><a name="SystemRequirements"></a></font><b><font face="Arial" size="3">System 
+                  Requirements</font></b></p>
+            <p class="MsoBodyText"><b><font face="Verdana" size="2"><a name="OperatingSystems"></a>Operating 
+                  Systems</font></b></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><font face="Verdana" size="2">The 
+                Core Components binaries (excluding merge modules and
+            installers) support the following operating systems:</font></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px">&nbsp;</p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px"><font face="Verdana" size="2">Windows 
+                95 with <a href="http://www.microsoft.com/com/dcom/dcom95/dcom1_3.asp">DCOM95</a>;</font></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px"><font face="Verdana" size="2">Windows 
+                98 with <a href="http://www.microsoft.com/com/dcom/dcom98/dcom1_3.asp">DCOM98</a>;</font></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px"><font face="Verdana" size="2">Windows 
+                ME;</font></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px"><font face="Verdana" size="2">Windows 
+                NT;</font></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px"><font face="Verdana" size="2">Windows 
+                2000;</font></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px"><font face="Verdana" size="2">Windows 
+                XP;</font></p>
+			<p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px">
+			<font face="Verdana" size="2">Windows Server 2003;</font></p>
+			<p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 25px">
+			<font face="Verdana" size="2">Windows Vista;</font></p>
+            <p class="MsoBodyText"><font face="Verdana" size="2">The installers 
+			have only been tested on Windows XP and Windows Vista at this time.</font></p>
+			<p class="MsoBodyText"><font face="Verdana" size="2">The .NET RCWs 
+			require the .NET Framework version 1.1 or 2.0 and they are not 
+			installed unless one of these versions is present. If both versions 
+			are installed on a system then versions of the .NET RCWs are 
+			installed in the Global Assembly Cache. The .NET Frameworks can be 
+			downloaded from
+			<a href="http://msdn2.microsoft.com/en-us/netframework/aa731542.aspx">
+			here</a>.</font></p>
+			<p class="MsoBodyText"><b><font face="Verdana" size="2">
+			<a name="Installers"></a>Installers</font></b></p>
+			<p class="MsoBodyText"><font face="Verdana" size="2">The installers 
+			come with a setup.exe file. This is the file that must be used to 
+			install under Windows Vista. Double clicking on the MSI will cause 
+			an error.</font></p>
+            <p class="MsoBodyText"><font face="Verdana" size="2">The installer packages are 
+                self-installing files; however, they require that Windows Installer 2.0 be 
+                present on the system (it is standard on Windows 2000 SP3 and Windows XP). The 
+                Windows Installer 2.0 support files for other operating systems can be 
+                downloaded from Microsoft's website at:</font></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; TEXT-INDENT: 25px"><span class="MsoHyperlink"><font face="Verdana" size="2"><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=4b6140f9-2d36-4977-8fa1-6f8a0f5dca8f&amp;DisplayLang=en"
+                    target="_top">Download Windows Installer 2.0 Redistributable for Windows NT 4.0 
+                    and 2000</a><O:P>
+                  &nbsp;</font></span></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; TEXT-INDENT: 25px"><span class="MsoHyperlink"><font face="Verdana" size="2"><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=cebbacd8-c094-4255-b702-de3bb768148f&amp;DisplayLang=en"
+                    target="_top">Download Windows Installer 2.0 Redistributable for Windows 95, 98 
+                    and ME</a></font></span></p>
+            <p class="MsoBodyText" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px">&nbsp;</p>
+            <p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><span class="MsoHyperlink"><font face="Verdana" size="2">The 
+                  installers automatically check if the .NET framework is installed on a 
+                  particular system; if it is not found the .NET components are not installed.&nbsp;</font></span></p>
+            <p class="MsoBodyText"><b><font face="Verdana" size="2"><a name="SourceCode"></a>Source 
+                  Code</font></b></p>
+        <p><span class="MsoHyperlink"><font face="Verdana" size="2"><span style="COLOR: windowtext; TEXT-DECORATION: none; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; text-underline: none">All
+        source code projects require Visual Studio 2005 with Service Pack 1 
+		installed.</span></font></span><p><span class="MsoHyperlink">
+			<font face="Verdana" size="2">T<span style="COLOR: windowtext; TEXT-DECORATION: none; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; text-underline: none">he 
+			service pack can be downloaded
+			<a href="http://msdn2.microsoft.com/en-us/vstudio/aa718695.aspx">
+			here</a>.</span>&nbsp;</font></span>
+            <p><a name="RedistributableInstallation"></a><b><font face="Arial" size="3">Installation</font></b></p>
+            <p><b><font face="Verdana" size="2">Redistributable</font></b></p>
+            <p style="MARGIN: 0in 0in 0pt; mso-pagination: none; mso-layout-grid-align: none"><span style="mso-fareast-font-family: Times New Roman"><font face="Verdana" size="2"><O:P></font></span><font face="Verdana" size="2">All 
+                COM servers and proxy/stub libraries that have been previously released are 
+                installed in the system folder and reference counted in order to ensure 
+                compatibility with older install programs.</font> <font face="Verdana" size="2">
+                New COM servers and proxy/stub libraries are installed in the common files 
+                folder under "OPC Foundation\Bin<O:P>
+                ".</font></p>
+            <p><font face="Verdana" size="2">Shared .NET assemblies are signed with the OPC 
+                Foundation's master key-pair and installed in the Global Assembly Cache (GAC). The source code 
+                distribution includes a test key-pair that permits developers to 
+                experiment with the assemblies without affecting other vendor's applications.</font></p>
+            <p><font face="Verdana" size="2">Vendors may install these assemblies 
+                in a vendor specific directory, but the vendor needs to recognize that .NET 
+                framework will look in the GAC for an assembly before probing 
+			the vendor specific directory.&nbsp; As a result, applications will 
+			use the assemblies in the GAC even if a vendor has installed copies 
+			in a vendor specific directory. </font></p>
+            <p><font face="Verdana" size="2">Vendors who wish to always use their private 
+                versions must re-sign the assemblies with their own key pair and build their 
+                applications against these re-signed assemblies. This approach will not impact 
+                other applications that were built against the OPC Foundation signed and 
+                versioned assemblies.</font></p>
+            <p><b><font face="Verdana" size="2">Source Code</font></b></p>
+            <p class="MsoNormal"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana">The
+        </span><font face="Verdana" size="2">Source Code </font>
+              <span style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana">installer
+        places all files in the default directory:</span></p>
+            <p class="MsoNormal" style="TEXT-INDENT: 25px"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana"><b>$(ProgramFiles)\OPC 
+                  Foundation\Core Components 3.00</b></span></p>
+            <p class="MsoNormal"><span style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana">The
+        root of the source tree contains the following sub-directories:</span></p>
+            <table border="1" width="100%" cellspacing="0" cellpadding="2">
+              <tr>
+                <td width="25%" align="center" bgcolor="#000080" valign="middle"><b><font color="#ffffff" face="Verdana" size="2">Directory</font></b></td>
+                <td align="center" bgcolor="#000080" valign="middle">
+                  <p align="center"><b><font color="#ffffff" face="Verdana" size="2">Description</font></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Bin<o:p></o:p>
+                  </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Executable and configuration 
+                    files.</O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Keys<o:p></o:p>
+                  </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">The key pairs used to sign .NET 
+                    assemblies.</font></td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Merge Modules<o:p></o:p>
+                  </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Merge modules.</O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Source<o:p></o:p>
+                  </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code.</O:P> </font>
+                </td>
+              </tr>
+            </table>
+            <p><span style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana">The 'Source'
+        directory contains the following sub-directories:</span></p>
+            <table border="1" width="100%" cellspacing="0" cellpadding="2">
+              <tr>
+                <td width="25%" align="center" bgcolor="#000080" valign="middle"><b><font color="#ffffff" face="Verdana" size="2">Directory</font></b></td>
+                <td align="center" bgcolor="#000080" valign="middle">
+                  <p align="center"><b><font color="#ffffff" face="Verdana" size="2">Description</font></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Bin</font></td>
+                <td valign="middle"><font face="Verdana" size="2">Exported COM servers and .NET 
+                    assemblies. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Include </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Exported C++ header files and 
+                    type libraries. </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">
+				Solutions </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">A directory 
+				containing the solutions used to build the components.</font></td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Alarms and 
+                    Events</O:P> </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the Alarms 
+                    and Events specifications. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Batch</O:P> </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the 
+                    Batch</O:P> specifications. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Common</O:P> </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the Common 
+                    specifications. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">
+				Commands </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the Common 
+                    specifications. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Data Access</O:P> </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the Data 
+                    Access specifications. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Data eXchange</O:P> </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the Data 
+                    eXchange</O:P> specification. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Historical Data 
+                    Access</O:P> </font>
+                </td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the 
+                    Historical Data Access specifications. </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Security</font></td>
+                <td valign="middle"><font face="Verdana" size="2">Source code related to the 
+                    Security specification. </O:P> </font>
+                </td>
+              </tr>
+            </table>
+            <p><span style="FONT-SIZE: 10pt; FONT-FAMILY: Verdana">The following
+        projects directories exist in the specification specific
+        sub-directories:</span></p>
+            <table border="1" width="100%" cellspacing="0" cellpadding="2">
+              <tr>
+                <td width="25%" align="center" bgcolor="#000080" valign="middle"><b><font color="#ffffff" face="Verdana" size="2">Directory</font></b></td>
+                <td align="center" bgcolor="#000080" valign="middle">
+                  <p align="center"><b><font color="#ffffff" face="Verdana" size="2">Description</font></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">Proxy Stub</font></td>
+                <td valign="middle"><font face="Verdana" size="2">The DCOM proxy/stub library. 
+                    </O:P> </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%" valign="middle"><font face="Verdana" size="2">.NET Wrapper</font></td>
+                <td valign="middle"><font face="Verdana" size="2">The .NET Runtime Callable Wrapper 
+                    (RCW).</font></td>
+              </tr>
+            </table>
+            <p><font face="Verdana" size="2"><a name="ProblemReporting"></a></font><b><font face="Arial" size="3">Problem 
+                  Reporting</font></b></p>
+            <p><font face="Verdana" size="2">As part of a broader initiative to increase 
+                adoption of OPC specifications and to improve service to members, the OPC 
+                Foundation intends to maintain binaries and sample code over time following a 
+                model similar to Open Source projects. Vendors are encouraged to report 
+                problems, bug fixes, enhancements and any other comments about the components 
+                supplied by the OPC Foundation. To support this effort, the OPC Foundation has 
+                technical staff prepared to review and incorporate feedback into the baseline 
+                and release new versions of the components and sample code in a timely manner 
+                for the benefit of all members.</font></p>
+            <p><font face="Verdana" size="2">Please note that this support is intended for OPC 
+                Foundation members who are incorporating OPC support into their products.</font></p>
+            <p><font face="Verdana" size="2">Problems related to a particular download should 
+                be posted to the appropriate group on the <a href="http://opcfoundation.org/forum">
+                  OPC Foundation Message Board</a>.</font></p>
+          </td>
+        </tr>
+        <tr align="center">
+          <td>
+            <hr align="center" width="100%" SIZE="1">
+            <font face="Verdana, Arial, Helvetica, sans-serif" size="1">Please send website 
+              comments or report any problems to: <a href="mailto:webmaster@opcfoundation.org?Subject=OPC website comments">
+                webmaster@opcfoundation.org</a></font></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

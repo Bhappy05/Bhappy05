@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions 
+  targetNamespace="http://opcfoundation.org/UA/" 
+  xmlns:tns="http://opcfoundation.org/UA/" 
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+  xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://opcfoundation.org/UA/Imports">
+      <xsd:import schemaLocation="http://localhost/UA/Opc.Ua.Types.xsd" namespace="http://opcfoundation.org/UA/"/>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://opcfoundation.org/UA/">
+      <xsd:element name="InvokeServiceRequest" type="xsd:base64Binary" nillable="true" /> 
+      <xsd:element name="InvokeServiceResponse" type="xsd:base64Binary" nillable="true" /> 
+    </xsd:schema>
+  </wsdl:types>
+
+  <wsdl:message name="InvokeServiceMessage">
+    <wsdl:part name="InvokeServiceRequest" element="tns:InvokeServiceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="InvokeServiceResponseMessage">
+    <wsdl:part name="InvokeServiceResponse" element="tns:InvokeServiceResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="TestStackMessage">
+    <wsdl:part name="parameters" element="tns:TestStackRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TestStackResponseMessage">
+    <wsdl:part name="parameters" element="tns:TestStackResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="TestStackExMessage">
+    <wsdl:part name="parameters" element="tns:TestStackExRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TestStackExResponseMessage">
+    <wsdl:part name="parameters" element="tns:TestStackExResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateSessionMessage">
+    <wsdl:part name="parameters" element="tns:CreateSessionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CreateSessionResponseMessage">
+    <wsdl:part name="parameters" element="tns:CreateSessionResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="ActivateSessionMessage">
+    <wsdl:part name="parameters" element="tns:ActivateSessionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ActivateSessionResponseMessage">
+    <wsdl:part name="parameters" element="tns:ActivateSessionResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="CloseSessionMessage">
+    <wsdl:part name="parameters" element="tns:CloseSessionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CloseSessionResponseMessage">
+    <wsdl:part name="parameters" element="tns:CloseSessionResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="CancelMessage">
+    <wsdl:part name="parameters" element="tns:CancelRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CancelResponseMessage">
+    <wsdl:part name="parameters" element="tns:CancelResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="AddNodesMessage">
+    <wsdl:part name="parameters" element="tns:AddNodesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AddNodesResponseMessage">
+    <wsdl:part name="parameters" element="tns:AddNodesResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="AddReferencesMessage">
+    <wsdl:part name="parameters" element="tns:AddReferencesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AddReferencesResponseMessage">
+    <wsdl:part name="parameters" element="tns:AddReferencesResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteNodesMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNodesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteNodesResponseMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNodesResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteReferencesMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferencesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteReferencesResponseMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferencesResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="BrowsePropertiesMessage">
+    <wsdl:part name="parameters" element="tns:BrowsePropertiesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="BrowsePropertiesResponseMessage">
+    <wsdl:part name="parameters" element="tns:BrowsePropertiesResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="BrowseMessage">
+    <wsdl:part name="parameters" element="tns:BrowseRequest"/>
+  </wsdl:message>
+  <wsdl:message name="BrowseResponseMessage">
+    <wsdl:part name="parameters" element="tns:BrowseResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="BrowseNextMessage">
+    <wsdl:part name="parameters" element="tns:BrowseNextRequest"/>
+  </wsdl:message>
+  <wsdl:message name="BrowseNextResponseMessage">
+    <wsdl:part name="parameters" element="tns:BrowseNextResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="TranslateBrowsePathsToNodeIdsMessage">
+    <wsdl:part name="parameters" element="tns:TranslateBrowsePathsToNodeIdsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TranslateBrowsePathsToNodeIdsResponseMessage">
+    <wsdl:part name="parameters" element="tns:TranslateBrowsePathsToNodeIdsResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="QueryFirstMessage">
+    <wsdl:part name="parameters" element="tns:QueryFirstRequest"/>
+  </wsdl:message>
+  <wsdl:message name="QueryFirstResponseMessage">
+    <wsdl:part name="parameters" element="tns:QueryFirstResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="QueryNextMessage">
+    <wsdl:part name="parameters" element="tns:QueryNextRequest"/>
+  </wsdl:message>
+  <wsdl:message name="QueryNextResponseMessage">
+    <wsdl:part name="parameters" element="tns:QueryNextResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="ReadMessage">
+    <wsdl:part name="parameters" element="tns:ReadRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReadResponseMessage">
+    <wsdl:part name="parameters" element="tns:ReadResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="HistoryReadMessage">
+    <wsdl:part name="parameters" element="tns:HistoryReadRequest"/>
+  </wsdl:message>
+  <wsdl:message name="HistoryReadResponseMessage">
+    <wsdl:part name="parameters" element="tns:HistoryReadResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="WriteMessage">
+    <wsdl:part name="parameters" element="tns:WriteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="WriteResponseMessage">
+    <wsdl:part name="parameters" element="tns:WriteResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="HistoryUpdateMessage">
+    <wsdl:part name="parameters" element="tns:HistoryUpdateRequest"/>
+  </wsdl:message>
+  <wsdl:message name="HistoryUpdateResponseMessage">
+    <wsdl:part name="parameters" element="tns:HistoryUpdateResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="CallMessage">
+    <wsdl:part name="parameters" element="tns:CallRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CallResponseMessage">
+    <wsdl:part name="parameters" element="tns:CallResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateMonitoredItemsMessage">
+    <wsdl:part name="parameters" element="tns:CreateMonitoredItemsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CreateMonitoredItemsResponseMessage">
+    <wsdl:part name="parameters" element="tns:CreateMonitoredItemsResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="ModifyMonitoredItemsMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMonitoredItemsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ModifyMonitoredItemsResponseMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMonitoredItemsResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="SetMonitoringModeMessage">
+    <wsdl:part name="parameters" element="tns:SetMonitoringModeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SetMonitoringModeResponseMessage">
+    <wsdl:part name="parameters" element="tns:SetMonitoringModeResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="SetTriggeringMessage">
+    <wsdl:part name="parameters" element="tns:SetTriggeringRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SetTriggeringResponseMessage">
+    <wsdl:part name="parameters" element="tns:SetTriggeringResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteMonitoredItemsMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMonitoredItemsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteMonitoredItemsResponseMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMonitoredItemsResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateSubscriptionMessage">
+    <wsdl:part name="parameters" element="tns:CreateSubscriptionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="CreateSubscriptionResponseMessage">
+    <wsdl:part name="parameters" element="tns:CreateSubscriptionResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="ModifySubscriptionMessage">
+    <wsdl:part name="parameters" element="tns:ModifySubscriptionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ModifySubscriptionResponseMessage">
+    <wsdl:part name="parameters" element="tns:ModifySubscriptionResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="SetPublishingModeMessage">
+    <wsdl:part name="parameters" element="tns:SetPublishingModeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SetPublishingModeResponseMessage">
+    <wsdl:part name="parameters" element="tns:SetPublishingModeResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="PublishMessage">
+    <wsdl:part name="parameters" element="tns:PublishRequest"/>
+  </wsdl:message>
+  <wsdl:message name="PublishResponseMessage">
+    <wsdl:part name="parameters" element="tns:PublishResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="RepublishMessage">
+    <wsdl:part name="parameters" element="tns:RepublishRequest"/>
+  </wsdl:message>
+  <wsdl:message name="RepublishResponseMessage">
+    <wsdl:part name="parameters" element="tns:RepublishResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="TransferSubscriptionsMessage">
+    <wsdl:part name="parameters" element="tns:TransferSubscriptionsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TransferSubscriptionsResponseMessage">
+    <wsdl:part name="parameters" element="tns:TransferSubscriptionsResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteSubscriptionsMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubscriptionsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteSubscriptionsResponseMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubscriptionsResponse"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="ISessionEndpoint">
+
+    <wsdl:operation name="InvokeService">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/InvokeService" name="InvokeServiceMessage" message="tns:InvokeServiceMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/InvokeServiceResponse" name="InvokeServiceResponseMessage" message="tns:InvokeServiceResponseMessage"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="TestStack">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/TestStack" name="TestStackMessage" message="tns:TestStackMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/TestStackResponse" name="TestStackResponseMessage" message="tns:TestStackResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="TestStackEx">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/TestStackEx" name="TestStackExMessage" message="tns:TestStackExMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/TestStackExResponse" name="TestStackExResponseMessage" message="tns:TestStackExResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateSession">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/CreateSession" name="CreateSessionMessage" message="tns:CreateSessionMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/CreateSessionResponse" name="CreateSessionResponseMessage" message="tns:CreateSessionResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ActivateSession">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/ActivateSession" name="ActivateSessionMessage" message="tns:ActivateSessionMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/ActivateSessionResponse" name="ActivateSessionResponseMessage" message="tns:ActivateSessionResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CloseSession">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/CloseSession" name="CloseSessionMessage" message="tns:CloseSessionMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/CloseSessionResponse" name="CloseSessionResponseMessage" message="tns:CloseSessionResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="Cancel">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/Cancel" name="CancelMessage" message="tns:CancelMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/CancelResponse" name="CancelResponseMessage" message="tns:CancelResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="AddNodes">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/AddNodes" name="AddNodesMessage" message="tns:AddNodesMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/AddNodesResponse" name="AddNodesResponseMessage" message="tns:AddNodesResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="AddReferences">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/AddReferences" name="AddReferencesMessage" message="tns:AddReferencesMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/AddReferencesResponse" name="AddReferencesResponseMessage" message="tns:AddReferencesResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteNodes">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/DeleteNodes" name="DeleteNodesMessage" message="tns:DeleteNodesMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/DeleteNodesResponse" name="DeleteNodesResponseMessage" message="tns:DeleteNodesResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteReferences">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/DeleteReferences" name="DeleteReferencesMessage" message="tns:DeleteReferencesMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/DeleteReferencesResponse" name="DeleteReferencesResponseMessage" message="tns:DeleteReferencesResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="BrowseProperties">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/BrowseProperties" name="BrowsePropertiesMessage" message="tns:BrowsePropertiesMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/BrowsePropertiesResponse" name="BrowsePropertiesResponseMessage" message="tns:BrowsePropertiesResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="Browse">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/Browse" name="BrowseMessage" message="tns:BrowseMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/BrowseResponse" name="BrowseResponseMessage" message="tns:BrowseResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="BrowseNext">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/BrowseNext" name="BrowseNextMessage" message="tns:BrowseNextMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/BrowseNextResponse" name="BrowseNextResponseMessage" message="tns:BrowseNextResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="TranslateBrowsePathsToNodeIds">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/TranslateBrowsePathsToNodeIds" name="TranslateBrowsePathsToNodeIdsMessage" message="tns:TranslateBrowsePathsToNodeIdsMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/TranslateBrowsePathsToNodeIdsResponse" name="TranslateBrowsePathsToNodeIdsResponseMessage" message="tns:TranslateBrowsePathsToNodeIdsResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="QueryFirst">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/QueryFirst" name="QueryFirstMessage" message="tns:QueryFirstMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/QueryFirstResponse" name="QueryFirstResponseMessage" message="tns:QueryFirstResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="QueryNext">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/QueryNext" name="QueryNextMessage" message="tns:QueryNextMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/QueryNextResponse" name="QueryNextResponseMessage" message="tns:QueryNextResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="Read">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/Read" name="ReadMessage" message="tns:ReadMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/ReadResponse" name="ReadResponseMessage" message="tns:ReadResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="HistoryRead">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/HistoryRead" name="HistoryReadMessage" message="tns:HistoryReadMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/HistoryReadResponse" name="HistoryReadResponseMessage" message="tns:HistoryReadResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="Write">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/Write" name="WriteMessage" message="tns:WriteMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/WriteResponse" name="WriteResponseMessage" message="tns:WriteResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="HistoryUpdate">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/HistoryUpdate" name="HistoryUpdateMessage" message="tns:HistoryUpdateMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/HistoryUpdateResponse" name="HistoryUpdateResponseMessage" message="tns:HistoryUpdateResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="Call">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/Call" name="CallMessage" message="tns:CallMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/CallResponse" name="CallResponseMessage" message="tns:CallResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateMonitoredItems">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/CreateMonitoredItems" name="CreateMonitoredItemsMessage" message="tns:CreateMonitoredItemsMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/CreateMonitoredItemsResponse" name="CreateMonitoredItemsResponseMessage" message="tns:CreateMonitoredItemsResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ModifyMonitoredItems">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/ModifyMonitoredItems" name="ModifyMonitoredItemsMessage" message="tns:ModifyMonitoredItemsMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/ModifyMonitoredItemsResponse" name="ModifyMonitoredItemsResponseMessage" message="tns:ModifyMonitoredItemsResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="SetMonitoringMode">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/SetMonitoringMode" name="SetMonitoringModeMessage" message="tns:SetMonitoringModeMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/SetMonitoringModeResponse" name="SetMonitoringModeResponseMessage" message="tns:SetMonitoringModeResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="SetTriggering">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/SetTriggering" name="SetTriggeringMessage" message="tns:SetTriggeringMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/SetTriggeringResponse" name="SetTriggeringResponseMessage" message="tns:SetTriggeringResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteMonitoredItems">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/DeleteMonitoredItems" name="DeleteMonitoredItemsMessage" message="tns:DeleteMonitoredItemsMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/DeleteMonitoredItemsResponse" name="DeleteMonitoredItemsResponseMessage" message="tns:DeleteMonitoredItemsResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateSubscription">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/CreateSubscription" name="CreateSubscriptionMessage" message="tns:CreateSubscriptionMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/CreateSubscriptionResponse" name="CreateSubscriptionResponseMessage" message="tns:CreateSubscriptionResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ModifySubscription">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/ModifySubscription" name="ModifySubscriptionMessage" message="tns:ModifySubscriptionMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/ModifySubscriptionResponse" name="ModifySubscriptionResponseMessage" message="tns:ModifySubscriptionResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="SetPublishingMode">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/SetPublishingMode" name="SetPublishingModeMessage" message="tns:SetPublishingModeMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/SetPublishingModeResponse" name="SetPublishingModeResponseMessage" message="tns:SetPublishingModeResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="Publish">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/Publish" name="PublishMessage" message="tns:PublishMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/PublishResponse" name="PublishResponseMessage" message="tns:PublishResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="Republish">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/Republish" name="RepublishMessage" message="tns:RepublishMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/RepublishResponse" name="RepublishResponseMessage" message="tns:RepublishResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="TransferSubscriptions">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/TransferSubscriptions" name="TransferSubscriptionsMessage" message="tns:TransferSubscriptionsMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/TransferSubscriptionsResponse" name="TransferSubscriptionsResponseMessage" message="tns:TransferSubscriptionsResponseMessage"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteSubscriptions">
+      <wsdl:input wsa10:Action="http://opcfoundation.org/UA/DeleteSubscriptions" name="DeleteSubscriptionsMessage" message="tns:DeleteSubscriptionsMessage"/>
+      <wsdl:output wsa10:Action="http://opcfoundation.org/UA/DeleteSubscriptionsResponse" name="DeleteSubscriptionsResponseMessage" message="tns:DeleteSubscriptionsResponseMessage"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+   
+</wsdl:definitions>

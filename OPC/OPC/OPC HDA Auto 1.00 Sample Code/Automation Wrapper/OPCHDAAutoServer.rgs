@@ -1,0 +1,26 @@
+HKCR
+{
+	OPCHDA.Automation.1 = s 'OPC HDA Automation 1.0 Server Object'
+	{
+		CLSID = s '{0C67847E-BCD7-11d4-9E70-00B0D060205F}'
+	}
+	OPCHDA.Automation = s 'OPC HDA Automation 1.0 Server Object'
+	{
+		CLSID = s '{0C67847E-BCD7-11d4-9E70-00B0D060205F}'
+		CurVer = s 'OPCHDA.Automation.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0C67847E-BCD7-11d4-9E70-00B0D060205F} = s 'OPC HDA Automation 1.0 Server Object'
+		{
+			ProgID = s 'OPCHDA.Automation.1'
+			VersionIndependentProgID = s 'OPCHDA.Automation'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{0C678470-BCD7-11d4-9E70-00B0D060205F}'
+		}
+	}
+}

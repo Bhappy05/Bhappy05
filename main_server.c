@@ -5,7 +5,7 @@ UA_NodeId Detector_id;
 UA_NodeId Detector_value_id;
 static UA_UInt16 detector_value = 0;
 
-void write_detector_value(UA_UInt16 value);
+void write_detector_value(UA_UInt16 value, UA_Server *server);
 
 static UA_StatusCode
 read_variable(UA_Server *server,
@@ -25,7 +25,7 @@ write_variable(UA_Server *server,
                const UA_NumericRange *range, const UA_DataValue *data) {
     if (data->value.type == &UA_TYPES[UA_TYPES_UINT16]) {
         detector_value = *(UA_UInt16 *) data->value.data;
-        write_detector_value(detector_value);
+        write_detector_value(detector_value, server);
     } else {
         UA_LOG_ERROR(UA_Log_Stdout, UA_LOGCATEGORY_USERLAND, "Can't write variable. Bad type");
     }

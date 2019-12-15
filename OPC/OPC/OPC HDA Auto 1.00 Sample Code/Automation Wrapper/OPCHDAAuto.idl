@@ -1,0 +1,854 @@
+/*  ____________________________________________________________________________
+
+    OPCHDAAuto.idl
+
+    OPC HDA Automation 1.0 interfaces.
+    ____________________________________________________________________________
+
+    This file will be processed by the MIDL tool to produce the
+    type library (OPCHDAAuto.tlb) and marshalling code.
+    ____________________________________________________________________________
+*/
+import "oaidl.idl";
+import "ocidl.idl";
+
+interface IOPCHDAAutoServer;
+interface IOPCHDAItems;
+interface OPCHDAItem;
+interface OPCHDABrowser;
+
+[
+    uuid(0C678470-BCD7-11d4-9E70-00B0D060205F),
+    version(1.0),
+    helpstring("OPC HDA Automation 1.0")
+]
+library OPCHDAAutomation
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    enum OPCHDAServerStatus { OPCHDAUp = 1, OPCHDADown, OPCHDAIndeterminate };
+    enum OPCHDAOperatorCode { OPCHDAEqual = 1, OPCHDALess, OPCHDALessEqual, OPCHDAGreater, OPCHDAGreaterEqual };
+    enum OPCHDAEditType { OPCHDAInsert = 1, OPCHDAReplace, OPCHDAInsertReplace, OPCHDADelete, OPCHDAAnnotate };
+
+    enum OPCHDAErrors {
+        OPCHDAMaxExceeded = 0xC0041001L,
+        OPCHDANoData = 0x40041002L,
+        OPCHDAMoreData = 0x40041003L,
+        OPCHDAInvalidAggregate = 0xC0041004L,
+        OPCHDACurrentValue = 0x40041005L,
+        OPCHDAExtraData = 0x40041006L,
+        OPCHDANoFilter = 0x80041007L,
+        OPCHDAUnknownAttrID = 0xC0041008L,
+        OPCHDANotAvail = 0xC0041009L,
+        OPCHDAInvalidDataType = 0xC004100AL,
+        OPCHDADataExists = 0xC004100BL,
+        OPCHDAInvalidAttrID = 0xC004100CL,
+        OPCHDANoDataExists = 0xC004100DL,
+        OPCHDAInserted = 0x4004100EL,
+        OPCHDAReplaced = 0x4004100FL	 };
+
+    enum OPCHDAAggregate {
+        OPCHDANoAggregate = 0,
+        OPCHDAInterpolative,
+        OPCHDATotal,
+        OPCHDAAverage,
+        OPCHDATimeAverage,
+        OPCHDACount,
+        OPCHDAStDev,
+        OPCHDAMinimumActualTime,
+        OPCHDAMinimum,
+        OPCHDAMaximumActualTime,
+        OPCHDAMaximum,
+        OPCHDAStart,
+        OPCHDAEnd,
+        OPCHDADelta,
+        OPCHDARegSlope,
+        OPCHDARegConst,
+        OPCHDARegDev,
+        OPCHDAVariance,
+        OPCHDARange,
+        OPCHDADurationGood,
+        OPCHDADurationBad,
+        OPCHDAPercentGood,
+        OPCHDAPercentBad,
+        OPCHDAWorstQuality,
+        OPCHDAAnnotations };
+
+    enum OPCHDAQuality {
+        OPCHDAQualityExtraData = 0x00010000,
+        OPCHDAQualityInterpolated = 0x00020000,
+        OPCHDAQualityRaw = 0x00040000,
+        OPCHDAQualityCalculated = 0x00080000,
+        OPCHDAQualityNoBound = 0x00100000,
+        OPCHDAQualityNoData = 0x00200000,
+        OPCHDAQualityDataLost = 0x00400000,
+        OPCHDAQualityConversion = 0x00800000 };
+
+    enum OPCHDAAttribute {
+        OPCHDADataType = 0x01,
+        OPCHDADescription = 0x02,
+        OPCHDAEngUnits = 0x03,
+        OPCHDAStepped = 0x04,
+        OPCHDAArchiving = 0x05,
+        OPCHDADeriveEquation = 0x06,
+        OPCHDANodeName = 0x07,
+        OPCHDAProcessName = 0x08,
+        OPCHDASourceName = 0x09,
+        OPCHDASourceType = 0x0a,
+        OPCHDANormalMaximum = 0x0b,
+        OPCHDANormalMinimum = 0x0c,
+        OPCHDAItemID = 0x0d,
+        OPCHDAMaxTimeInt = 0x0e,
+        OPCHDAMinTimeInt = 0x0f,
+        OPCHDAExceptionDev = 0x10,
+        OPCHDAExceptionDevType = 0x11,
+        OPCHDAHighEntryLimit = 0x12,
+        OPCHDALowEntryLimit = 0x13 };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        object,
+        uuid(0C678471-BCD7-11d4-9E70-00B0D060205F),
+        dual,
+        helpstring("OPC HDA Automation Server"),
+        pointer_default(unique)
+    ]
+    interface IOPCHDAAutoServer : IDispatch
+    {
+        [propget, helpstring("Time the server started")]
+        HRESULT StartTime([out, retval] DATE * StartTime);
+
+        [propget, helpstring("Current time at the server location")]
+        HRESULT CurrentTime([out, retval] DATE * CurrentTime);
+
+        [propget, helpstring("Maximum number of values that can be returned on a per item basis.")]
+        HRESULT MaxReturnValues([out, retval] LONG * MaxReturnValues);
+
+        [propget]
+        HRESULT MajorVersion([out, retval] short * MajorVersion);
+
+        [propget]
+        HRESULT MinorVersion([out, retval] short * MinorVersion);
+
+        [propget]
+        HRESULT BuildNumber([out, retval] short * BuildNumber);
+
+        [propget, helpstring("Server vendor information")]
+        HRESULT VendorInfo([out, retval] BSTR * VendorInfo);
+
+        [propget, helpstring("Returns an OPCHDAServerStatus")]
+        HRESULT HistorianStatus([out, retval] LONG * HistorianStatus);
+
+        [propget, helpstring("Explains historian status when indeterminate.")]
+        HRESULT StatusString([out, retval] BSTR * StatusString);
+
+        [propget, helpstring("Returns this server's name")]
+        HRESULT ServerName([out, retval] BSTR * ServerName);
+
+        [propget, helpstring("Returns this server's node")]
+        HRESULT ServerNode([out, retval] BSTR * ServerNode);
+
+        [propget, helpstring("Identify the client")]
+        HRESULT ClientName([out, retval] BSTR * ClientName);
+        [propput]
+        HRESULT ClientName([in] BSTR ClientName);
+
+        [propget]
+        HRESULT LocaleID([out, retval] LONG * LocaleID);
+        [propput]
+        HRESULT LocaleID([in] LONG LocaleID);
+
+		[propget]
+        HRESULT CanSyncInsert([out, retval] BOOL * CanSyncInsert);
+		[propget]
+        HRESULT CanSyncReplace([out, retval] BOOL * CanSyncReplace);
+		[propget]
+        HRESULT CanSyncInsertReplace([out, retval] BOOL * CanSyncInsertReplace);
+		[propget]
+        HRESULT CanSyncDeleteRaw([out, retval] BOOL * CanSyncDeleteRaw);
+		[propget]
+        HRESULT CanSyncDeleteAtTime([out, retval] BOOL * CanSyncDeleteAtTime);
+		[propget]
+        HRESULT CanSyncReadAnnotations([out, retval] BOOL * CanSyncReadAnnotations);
+		[propget]
+        HRESULT CanSyncInsertAnnotations([out, retval] BOOL * CanSyncInsertAnnotations);
+		[propget]
+        HRESULT CanAsyncInsert([out, retval] BOOL * CanAsyncInsert);
+		[propget]
+        HRESULT CanAsyncReplace([out, retval] BOOL * CanAsyncReplace);
+		[propget]
+        HRESULT CanAsyncInsertReplace([out, retval] BOOL * CanAsyncInsertReplace);
+		[propget]
+        HRESULT CanAsyncDeleteRaw([out, retval] BOOL * CanAsyncDeleteRaw);
+		[propget]
+        HRESULT CanAsyncDeleteAtTime([out, retval] BOOL * CanAsyncDeleteAtTime);
+		[propget]
+        HRESULT CanAsyncReadAnnotations([out, retval] BOOL * CanAsyncReadAnnotations);
+		[propget]
+        HRESULT CanAsyncInsertAnnotations([out, retval] BOOL * CanAsyncInsertAnnotations);
+
+        [propget, id(DISPID_VALUE), helpstring("The collection of OPCHDAItem Objects")]
+        HRESULT OPCHDAItems([out, retval] IOPCHDAItems ** ppOPCHDAItems);
+
+        [helpstring("Returns an array of OPC HDA server names, optionally on another node")]
+        HRESULT GetOPCHDAServers(
+            [in, optional]  VARIANT   Node,
+            [out, retval]   VARIANT * OPCHDAServers);
+
+        [helpstring("Connect to a named OPC HDA server")]
+        HRESULT Connect(
+            [in]            BSTR    ProgID,
+            [in, optional]  VARIANT Node);
+
+        [helpstring("End connection with OPC HDA server")]
+        HRESULT Disconnect();
+
+        [helpstring("Convert an error code to a descriptive string")]
+        HRESULT GetErrorString(
+            [in]            LONG   ErrorCode,
+            [out, retval]   BSTR * ErrorString);
+
+        [helpstring("The locales supported by this server")]
+        HRESULT QueryAvailableLocaleIDs(
+            [out, retval]   VARIANT * LocaleIDs);
+
+        HRESULT GetItemAttributes(
+            [out]   LONG             * Count,
+            [out]   SAFEARRAY(LONG)  * AttributeIDs,
+            [out]   SAFEARRAY(BSTR)  * Names,
+            [out]   SAFEARRAY(BSTR)  * Descriptions,
+            [out]   SAFEARRAY(SHORT) * DataTypes);
+
+        HRESULT GetAggregates(
+            [out]   LONG            * Count,
+            [out]   SAFEARRAY(LONG) * AggregateIDs,
+            [out]   SAFEARRAY(BSTR) * Names,
+            [out]   SAFEARRAY(BSTR) * Descriptions);
+
+        HRESULT CreateBrowser(
+            [in, defaultvalue(0)]   LONG             NumCriteria,
+            [in, optional]          VARIANT          AttributeIDs,
+            [in, optional]          VARIANT          OperatorCodes,
+            [in, optional]          VARIANT          Filters,
+            [out, optional]         VARIANT        * Errors,
+            [out, retval]           OPCHDABrowser ** ppOPCHDABrowser);
+
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        uuid(0C678472-BCD7-11d4-9E70-00B0D060205F),
+        helpstring("OPC HDA Automation Server Events")
+    ]
+    dispinterface _IOPCHDAAutoServerEvents
+    {
+        properties:
+        methods:
+		[id(1)]
+        HRESULT HDAServerShutDown(
+            [in]    BSTR Reason);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        object,
+        uuid(0C678473-BCD7-11d4-9E70-00B0D060205F),
+        dual,
+        helpstring("Collection of OPC HDA Item objects"),
+        pointer_default(unique)
+    ]
+    interface IOPCHDAItems : IDispatch
+    {
+        [propget, helpstring("Returns the parent OPCHDAServer object")]
+        HRESULT Parent([out, retval] IOPCHDAAutoServer ** ppParent);
+
+        [propget, helpstring("Number of items in the collection")]
+        HRESULT Count([out, retval] LONG * Count );
+
+        [propget, restricted, id(DISPID_NEWENUM)]
+        HRESULT _NewEnum([out, retval] IUnknown ** ppUnk );
+
+        [id(DISPID_VALUE), helpstring("Returns an OPCItem by index (starts at 1)")]
+        HRESULT Item(
+            [in]            VARIANT       ItemSpecifier,
+            [out, retval]   OPCHDAItem ** ppItem);
+
+        [helpstring("Returns an OPCHDAItem specified by server handle")]
+        HRESULT GetOPCHDAItem(
+            [in]            LONG          ServerHandle,
+            [out, retval]   OPCHDAItem ** ppItem);
+
+        [helpstring("Adds an OPCHDAItem object to the collection")]
+        HRESULT AddItem(
+            [in]            BSTR          ItemID,
+            [in]            LONG          ClientHandle,
+            [out, retval]   OPCHDAItem ** ppItem);
+
+        [helpstring("Adds OPCHDAItem objects to the collection")]
+        HRESULT AddItems(
+            [in]    LONG              NumItems,
+            [in]    SAFEARRAY(BSTR) * ItemIDs,
+            [in]    SAFEARRAY(LONG) * ClientHandles,
+            [out]   SAFEARRAY(LONG) * ServerHandles,
+            [out]   SAFEARRAY(LONG) * Errors);
+
+        [helpstring("Removes OPCHDAItem objects from the collection")]
+        HRESULT Remove(
+            [in]    LONG              NumItems,
+            [in]    SAFEARRAY(LONG) * ServerHandles,
+            [out]   SAFEARRAY(LONG) * Errors);
+
+        [helpstring("Removes all OPC HDA items")]
+        HRESULT RemoveAll();
+
+        [helpstring("Validates OPC HDA item ID's.")]
+        HRESULT Validate(
+            [in]    LONG              NumItems,
+            [in]    SAFEARRAY(BSTR) * ItemIDs,
+            [out]   SAFEARRAY(LONG) * Errors);
+
+        HRESULT SyncReadRaw(
+            [in, out]   VARIANT            * StartTime,
+            [in, out]   VARIANT            * EndTime,
+            [in]        LONG                 NumValues,
+            [in]        BOOL                 Bounds,
+            [in]        LONG                 NumItems,
+            [in]        SAFEARRAY(LONG)    * ServerHandles,
+            [out]       SAFEARRAY(VARIANT) * ItemValues,
+            [out]       SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncReadProcessed(
+            [in, out]   VARIANT            * StartTime,
+            [in, out]   VARIANT            * EndTime,
+            [in]        DATE                 ResampleInterval,
+            [in]        LONG                 NumItems,
+            [in]        SAFEARRAY(LONG)    * ServerHandles,
+            [in]        SAFEARRAY(LONG)    * Aggregates,
+            [out]       SAFEARRAY(VARIANT) * ItemValues,
+            [out]       SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncReadAtTime(
+            [in]    LONG                 NumTimeStamps,
+            [in]    SAFEARRAY(DATE)    * TimeStamps,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ServerHandles,
+            [out]   SAFEARRAY(VARIANT) * ItemValues,
+            [out]   SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncReadModified(
+            [in, out]   VARIANT            * StartTime,
+            [in, out]   VARIANT            * EndTime,
+            [in]        LONG                 NumValues,
+            [in]        LONG                 NumItems,
+            [in]        SAFEARRAY(LONG)    * ServerHandles,
+            [out]       SAFEARRAY(VARIANT) * ItemValues,
+            [out]       SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncReadAttribute(
+            [in, out]   VARIANT            * StartTime,
+            [in, out]   VARIANT            * EndTime,
+            [in]        LONG                 ServerHandle,
+            [in]        LONG                 NumAttributes,
+            [in]        SAFEARRAY(LONG)    * AttributeIDs,
+            [out]       SAFEARRAY(VARIANT) * AttributeValues,
+            [out]       SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncInsert(
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ServerHandles,
+            [in]    SAFEARRAY(DATE)    * TimeStamps,
+            [in]    SAFEARRAY(VARIANT) * DataValues,
+            [in]    SAFEARRAY(LONG)    * Qualities,
+            [out]   SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncReplace(
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ServerHandles,
+            [in]    SAFEARRAY(DATE)    * TimeStamps,
+            [in]    SAFEARRAY(VARIANT) * DataValues,
+            [in]    SAFEARRAY(LONG)    * Qualities,
+            [out]   SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncInsertReplace(
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ServerHandles,
+            [in]    SAFEARRAY(DATE)    * TimeStamps,
+            [in]    SAFEARRAY(VARIANT) * DataValues,
+            [in]    SAFEARRAY(LONG)    * Qualities,
+            [out]   SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncDeleteRaw(
+            [in, out]   VARIANT         * StartTime,
+            [in, out]   VARIANT         * EndTime,
+            [in]        LONG              NumItems,
+            [in]        SAFEARRAY(LONG) * ServerHandles,
+            [out]       SAFEARRAY(LONG) * Errors);
+
+        HRESULT SyncDeleteAtTime(
+            [in]    LONG              NumItems,
+            [in]    SAFEARRAY(LONG) * ServerHandles,
+            [in]    SAFEARRAY(DATE) * TimeStamps,
+            [out]   SAFEARRAY(LONG) * Errors);
+
+        HRESULT SyncReadAnnotations(
+            [in, out]   VARIANT            * StartTime,
+            [in, out]   VARIANT            * EndTime,
+            [in]        LONG                 NumItems,
+            [in]        SAFEARRAY(LONG)    * ServerHandles,
+            [out]       SAFEARRAY(VARIANT) * AnnotationValues,
+            [out]       SAFEARRAY(LONG)    * Errors);
+
+        HRESULT SyncInsertAnnotations(
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ServerHandles,
+            [in]    SAFEARRAY(DATE)    * TimeStamps,
+            [in]    SAFEARRAY(VARIANT) * AnnotationValues,
+            [out]   SAFEARRAY(LONG)    * Errors);
+
+        HRESULT AsyncReadRaw(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            LONG              NumValues,
+            [in]            BOOL              Bounds,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncAdviseRaw(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in]            DATE              UpdateInterval,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncReadProcessed(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            DATE              ResampleInterval,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [in]            SAFEARRAY(LONG) * Aggregates,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncAdviseProcessed(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in]            DATE              ResampleInterval,
+            [in]            LONG              NumIntervals,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [in]            SAFEARRAY(LONG) * Aggregates,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncReadAtTime(
+            [in]            LONG              TransactionID,
+            [in]            LONG              NumTimeStamps,
+            [in]            SAFEARRAY(DATE) * TimeStamps,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncReadModified(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            LONG              NumValues,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncReadAttribute(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            LONG              ServerHandle,
+            [in]            LONG              NumAttributes,
+            [in]            SAFEARRAY(LONG) * AttributeIDs,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncCancelRead(
+            [in]    LONG CancelID);
+
+        HRESULT AsyncInsert(
+            [in]            LONG                 TransactionID,
+            [in]            LONG                 NumItems,
+            [in]            SAFEARRAY(LONG)    * ServerHandles,
+            [in]            SAFEARRAY(DATE)    * TimeStamps,
+            [in]            SAFEARRAY(VARIANT) * DataValues,
+            [in]            SAFEARRAY(LONG)    * Qualities,
+            [out]           SAFEARRAY(LONG)    * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncReplace(
+            [in]            LONG                 TransactionID,
+            [in]            LONG                 NumItems,
+            [in]            SAFEARRAY(LONG)    * ServerHandles,
+            [in]            SAFEARRAY(DATE)    * TimeStamps,
+            [in]            SAFEARRAY(VARIANT) * DataValues,
+            [in]            SAFEARRAY(LONG)    * Qualities,
+            [out]           SAFEARRAY(LONG)    * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncInsertReplace(
+            [in]            LONG                 TransactionID,
+            [in]            LONG                 NumItems,
+            [in]            SAFEARRAY(LONG)    * ServerHandles,
+            [in]            SAFEARRAY(DATE)    * TimeStamps,
+            [in]            SAFEARRAY(VARIANT) * DataValues,
+            [in]            SAFEARRAY(LONG)    * Qualities,
+            [out]           SAFEARRAY(LONG)    * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncDeleteRaw(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncDeleteAtTime(
+            [in]            LONG              TransactionID,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [in]            SAFEARRAY(DATE) * TimeStamps,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncCancelUpdate(
+            [in]    LONG CancelID);
+
+        HRESULT AsyncReadAnnotations(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncInsertAnnotations(
+            [in]            LONG                 TransactionID,
+            [in]            LONG                 NumItems,
+            [in]            SAFEARRAY(LONG)    * ServerHandles,
+            [in]            SAFEARRAY(DATE)    * TimeStamps,
+            [in]            SAFEARRAY(VARIANT) * AnnotationValues,
+            [out]           SAFEARRAY(LONG)    * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncCancelAnnotations(
+            [in]    LONG CancelID);
+
+        HRESULT AsyncPlaybackRaw(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            LONG              NumValues,
+            [in]            DATE              UpdateDuration,
+            [in]            DATE              UpdateInterval,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncPlaybackProcessed(
+            [in]            LONG              TransactionID,
+            [in, out]       VARIANT         * StartTime,
+            [in, out]       VARIANT         * EndTime,
+            [in]            DATE              ResampleInterval,
+            [in]            LONG              NumIntervals,
+            [in]            DATE              UpdateInterval,
+            [in]            LONG              NumItems,
+            [in]            SAFEARRAY(LONG) * ServerHandles,
+            [in]            SAFEARRAY(LONG) * Aggregates,
+            [out]           SAFEARRAY(LONG) * Errors,
+            [out, retval]   LONG            * CancelID);
+
+        HRESULT AsyncCancelPlayback(
+            [in]    LONG CancelID);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        uuid(0C678474-BCD7-11d4-9E70-00B0D060205F),
+        helpstring("OPC HDA Item Events")
+    ]
+    dispinterface _IOPCHDAItemEvents
+    {
+        properties:
+        methods:
+		[id(1)]
+        HRESULT DataChange(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ClientHandles,
+            [in]    SAFEARRAY(LONG)    * Aggregates,
+            [in]    SAFEARRAY(VARIANT) * ItemValues,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(2)]
+        HRESULT AsyncReadComplete(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ClientHandles,
+            [in]    SAFEARRAY(LONG)    * Aggregates,
+            [in]    SAFEARRAY(VARIANT) * ItemValues,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(3)]
+        HRESULT AsyncReadModifiedComplete(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ClientHandles,
+            [in]    SAFEARRAY(VARIANT) * ItemValues,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(4)]
+        HRESULT AsyncReadAttributesComplete(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 ClientHandle,
+            [in]    LONG                 NumAttributes,
+            [in]    SAFEARRAY(LONG)    * AttributesIDs,
+            [in]    SAFEARRAY(VARIANT) * AttributeValues,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(5)]
+        HRESULT AsyncReadAnnotationsComplete(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ClientHandles,
+            [in]    SAFEARRAY(VARIANT) * AnnotationValues,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(6)]
+        HRESULT AsyncInsertAnnotationsComplete(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ClientHandles,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(7)]
+        HRESULT Playback(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ClientHandles,
+            [in]    SAFEARRAY(LONG)    * Aggregates,
+            [in]    SAFEARRAY(VARIANT) * ItemValues,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(8)]
+        HRESULT AsyncUpdateComplete(
+            [in]    LONG                 TransactionID,
+            [in]    LONG                 Status,
+            [in]    LONG                 NumItems,
+            [in]    SAFEARRAY(LONG)    * ClientHandles,
+            [in]    SAFEARRAY(LONG)    * Errors);
+
+		[id(9)]
+        HRESULT AsyncCancelComplete(
+            [in]    LONG TransactionID);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        object,
+        uuid(0C678475-BCD7-11d4-9E70-00B0D060205F),
+        dual,
+        helpstring("OPC HDA Item"),
+        pointer_default(unique)
+    ]
+    interface OPCHDAItem : IDispatch
+    {
+        [propget, helpstring("Returns the parent OPCHDAServer object")]
+        HRESULT Parent([out, retval] IOPCHDAAutoServer ** ppParent);
+
+        [propget]
+        HRESULT ClientHandle([out, retval] LONG * ClientHandle);
+
+        [propget]
+        HRESULT ServerHandle([out, retval] LONG * ServerHandle);
+
+        [propget]
+        HRESULT ItemID([out, retval] BSTR * ItemID);
+
+        HRESULT ReadRaw(
+            [in, out]                   VARIANT * StartTime,
+            [in, out]                   VARIANT * EndTime,
+            [in, defaultvalue(0)]       LONG      NumValues,
+            [in, defaultvalue(FALSE)]   BOOL      Bounds,
+            [out, retval]               VARIANT * ItemValues);
+
+        HRESULT ReadProcessed(
+            [in, out]       VARIANT * StartTime,
+            [in, out]       VARIANT * EndTime,
+            [in]            DATE      ResampleInterval,
+            [in]            LONG      Aggregate,
+            [out, retval]   VARIANT * ItemValues);
+
+        HRESULT ReadAtTime(
+            [in]            LONG              NumTimeStamps,
+            [in]            SAFEARRAY(DATE) * TimeStamps,
+            [out, retval]   VARIANT         * ItemValues);
+
+        HRESULT Update(
+            [in]                                    DATE    TimeStamp,
+            [in]                                    VARIANT DataValue,
+            [in]                                    LONG    Quality,
+            [in, defaultvalue(OPCHDAInsertReplace)] LONG    EditType);
+
+        HRESULT DeleteRaw(
+            [in, out]   VARIANT * StartTime,
+            [in, out]   VARIANT * EndTime);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        object,
+        uuid(0C678476-BCD7-11d4-9E70-00B0D060205F),
+        dual,
+        helpstring("OPC HDA Browser"),
+        pointer_default(unique)
+    ]
+    interface OPCHDABrowser : IDispatch
+    {
+        [propget]
+        HRESULT CurrentPosition([out, retval] BSTR * CurrentPosition);
+
+        [propget]
+        HRESULT OPCHDABranches([out, retval] VARIANT * OPCHDABranches);
+
+        [propget]
+        HRESULT OPCHDALeaves([out, retval] VARIANT * OPCHDALeaves);
+
+        [propget]
+        HRESULT OPCHDAItems([out, retval] VARIANT * OPCHDAItems);
+
+        HRESULT MoveUp();
+
+        HRESULT MoveToRoot();
+
+        HRESULT MoveDown(
+            [in]    BSTR BranchName);
+
+        HRESULT MoveTo(
+            [in]    BSTR NewPosition);
+
+        HRESULT GetItemID(
+            [in]            BSTR   ItemName,
+            [out, retval]   BSTR * ItemID);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        object,
+        uuid(0C678477-BCD7-11d4-9E70-00B0D060205F),
+        dual,
+        helpstring("OPC HDA Value"),
+        pointer_default(unique)
+    ]
+    interface OPCHDAValue : IDispatch
+    {
+        [propget]
+        HRESULT TimeStamp([out, retval] DATE * TimeStamp);
+
+        [propget, id(DISPID_VALUE)]
+        HRESULT DataValue([out, retval] VARIANT * DataValue);
+
+        [propget]
+        HRESULT Quality([out, retval] LONG * Quality);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        object,
+        uuid(0C678478-BCD7-11d4-9E70-00B0D060205F),
+        dual,
+        helpstring("OPC HDA Entry"),
+        pointer_default(unique)
+    ]
+    interface OPCHDAEntry : OPCHDAValue
+    {
+        [propget]
+        HRESULT EntryTime([out, retval] DATE * EntryTime);
+
+        [propget]
+        HRESULT EntryType([out, retval] LONG * EntryType);
+
+        [propget]
+        HRESULT User([out, retval] BSTR * User);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        object,
+        uuid(0C678479-BCD7-11d4-9E70-00B0D060205F),
+        dual,
+        helpstring("Collection of OPC HDA Value or Entry objects"),
+        pointer_default(unique)
+    ]
+    interface OPCHDAHistory : IDispatch
+    {
+        [propget, helpstring("Number of items in the collection")]
+        HRESULT Count([out, retval] LONG * Count );
+
+        [propget, restricted, id(DISPID_NEWENUM)]
+        HRESULT _NewEnum([out, retval] IUnknown ** ppUnk );
+
+        [id(DISPID_VALUE), helpstring("Returns an item by index (starts at 1)")]
+        HRESULT Item(
+            [in]            VARIANT        ItemSpecifier,
+            [out, retval]   OPCHDAValue ** ppValue);
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        uuid(0C67847E-BCD7-11d4-9E70-00B0D060205F),
+        helpstring("OPC HDA Automation Server Object")
+    ]
+    coclass OPCHDAServer
+    {
+        [default] interface IOPCHDAAutoServer;
+        [default, source] dispinterface _IOPCHDAAutoServerEvents;
+    };
+
+/*  ____________________________________________________________________________
+*/
+    [
+        uuid(0C67847F-BCD7-11d4-9E70-00B0D060205F),
+        helpstring("OPC HDA Automation Items Collection")
+    ]
+    coclass OPCHDAItems
+    {
+        [default] interface IOPCHDAItems;
+        [default, source] dispinterface _IOPCHDAItemEvents;
+    };
+};
