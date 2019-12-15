@@ -14,7 +14,7 @@ void write_detector_value(UA_UInt16 value) {
 			}else{
 				cycle = 0;
 				for(int i = 0; i < 16; ++i){
-					ref%2 == 1 ? /*EVENT*/: ;
+					ref%2 == 1 ? : 0 ;
 					ref >>= 1;
 				}
 			}
@@ -28,7 +28,7 @@ void write_detector_value(UA_UInt16 value) {
 			}else{
 				cycle = 0;
 				for(int i = 0; i < 16; ++i){
-					ref%2 == 1 ? : ;
+					ref%2 == 1 ? : 0 ;
 					ref >>= 1;
 				}
 				/*EVENT*/
@@ -43,7 +43,7 @@ void write_detector_value(UA_UInt16 value) {
 			}else{
 				cycle = 0;
 				for(int i = 0; i < 16; ++i){
-					ref%2 == 1 ? : ;
+					ref%2 == 1 ? : 0 ;
 					ref >>= 1;
 				}
 				/*EVENT*/
@@ -59,7 +59,7 @@ void write_detector_value(UA_UInt16 value) {
 			}else{
 				cycle = 0;
 				for(int i = 0; i < 16; ++i){
-					ref%2 == 1 ? : ;
+					ref%2 == 1 ? : 0 ;
 					ref >>= 1;
 				}
 				/*EVENT*/
@@ -68,3 +68,4 @@ void write_detector_value(UA_UInt16 value) {
 			break;
 	}
 }
+
