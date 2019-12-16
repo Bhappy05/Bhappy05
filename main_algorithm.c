@@ -32,7 +32,7 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 				}
 				dtc[16] = '\0';
 				free(msg);
-				msg = (char*)realloc(msg, 50 * sizeof(char));
+				msg = (char*)malloc(50 * sizeof(char));
 				strcpy(msg, "1-ERRORS: ");
 				strcat(msg, dtc);
 				UA_NodeId eventNodeId;
@@ -57,7 +57,7 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 				}
 				dtc[16] = '\0';
 				free(msg);
-				msg = (char*)realloc(msg, 50 * sizeof(char));
+				msg = (char*)malloc(50 * sizeof(char));
 				strcpy(msg, "2-ERRORS: ");
 				strcat(msg, dtc);
 				UA_NodeId eventNodeId;
@@ -82,7 +82,7 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 				}
 				dtc[16] = '\0';
 				free(msg);
-				msg = (char*)realloc(msg, 50 * sizeof(char));
+				msg = (char*)malloc(50 * sizeof(char));
 				strcpy(msg, "3-ERRORS: ");
 				strcat(msg, dtc);
 				UA_NodeId eventNodeId;
@@ -99,7 +99,7 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 			if(ref == 0){
 				cycle = 0;
 				free(msg);
-				msg = (char*)realloc(msg, 3 * sizeof(char));
+				msg = (char*)malloc(3 * sizeof(char));
 				strcpy(msg, "OK");
 				/*EVENT_OK*/
 				UA_NodeId eventNodeId;
@@ -137,8 +137,8 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 static UA_StatusCode
 addNewEventType(UA_Server *server) {
     UA_ObjectTypeAttributes attr = UA_ObjectTypeAttributes_default;
-    attr.displayName = UA_LOCALIZEDTEXT("en-US", "SimpleEventType");
-    attr.description = UA_LOCALIZEDTEXT("en-US", "The simple event type we created");
+    attr.displayName = UA_LOCALIZEDTEXT("en-US", "DetectorEvent");
+    attr.description = UA_LOCALIZEDTEXT("en-US", "Shows detectors' errors.");
     return UA_Server_addObjectTypeNode(server, UA_NODEID_NULL,
                                        UA_NODEID_NUMERIC(0, UA_NS0ID_BASEEVENTTYPE),
                                        UA_NODEID_NUMERIC(0, UA_NS0ID_HASSUBTYPE),
