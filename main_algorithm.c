@@ -116,7 +116,7 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 				}
 				dtc[16] = '\0';
 				free(msg);
-				msg = (char*)realloc(msg, 50 * sizeof(char));
+				msg = (char*)malloc(msg, 50 * sizeof(char));
 				strcpy(msg, "4-ERRORS: ");
 				strcat(msg, dtc);
 				UA_NodeId eventNodeId;
@@ -167,8 +167,8 @@ setUpEvent(UA_Server *server, UA_NodeId *outId) {
     UA_Server_writeObjectProperty_scalar(server, *outId, UA_QUALIFIEDNAME(0, "Severity"),
                                          &eventSeverity, &UA_TYPES[UA_TYPES_UINT16]);
 
-    UA_LocalizedText eventMessage = UA_LOCALIZEDTEXT("en-US", "An event has been generated.");
-    UA_Server_writeObjectProperty_scalar(server, *outId, UA_QUALIFIEDNAME(0, msg),
+    UA_LocalizedText eventMessage = UA_LOCALIZEDTEXT("en-US", msg);
+    UA_Server_writeObjectProperty_scalar(server, *outId, UA_QUALIFIEDNAME(0, "Message"),
                                          &eventMessage, &UA_TYPES[UA_TYPES_LOCALIZEDTEXT]);
 
     UA_String eventSourceName = UA_STRING("Server");
