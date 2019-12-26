@@ -3,7 +3,7 @@
 #include <string.h>
 
 static UA_NodeId eventType;
-char *msg;
+char *out;
 
 static UA_StatusCode
 addNewEventType(UA_Server *server);
@@ -14,27 +14,32 @@ setUpEvent(UA_Server *server, UA_NodeId *outId);
 void write_detector_value(UA_UInt16 value, UA_Server *server) {
 	
 	addNewEventType(server);
-	static char cycle = 0;
-	UA_UInt16 ref;
+	static char tetrad = 0;
+	UA_UInt16 norm;
 
-	switch(cycle){
+	switch(tetrad){
 		case 0:{
-			ref = 0x1801;
-			ref ^= value;
-			if(ref == 0){
-				cycle++;
-			}else{
-				cycle = 0;
-				char dtc[17];
-				for(int i = 0; i < 16; ++i){
-					dtc[15 - i] = 60 + ref%2;
-					ref >>= 1;
+			norm = 0x1802;
+			norm ^= value;
+			if(norm == 0)
+                        {
+				tetrad++;
+			}
+                        else
+                        {
+				tetrad = 0;
+				char err[17];
+				for(int i = 0; i < 16; ++i)
+                                {
+                                        if (norm % 2 == 0) {err[15 - i] = 48;}
+                                        else {err[15 - i] = 49;}
+					norm >>= 1;
 				}
-				dtc[16] = '\0';
-				free(msg);
-				msg = (char*)malloc(50 * sizeof(char));
-				strcpy(msg, "1-ERRORS: ");
-				strcat(msg, dtc);
+				err[16] = '\0';
+				free(out);
+				out = (char*)malloc(30 * sizeof(char));
+				strcpy(out, "1 Tetrad: ");
+				strcat(out, err);
 				UA_NodeId eventNodeId;
 				setUpEvent(server, &eventNodeId);
 				UA_Server_triggerEvent(server, eventNodeId,
@@ -44,22 +49,27 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 		}
 			break;
 		case 1:{
-			ref = 0x2116;
-			ref ^= value;
-			if(ref == 0){
-				cycle++;
-			}else{
-				cycle = 0;
-				char dtc[17];
-				for(int i = 0; i < 16; ++i){
-					dtc[15 - i] = 60 + ref%2;
-					ref >>= 1;
+			norm = 0x7113;
+			norm ^= value;
+			if(norm == 0)
+                        {
+				tetrad++;
+			}
+                        else
+                        {
+				tetrad = 0;
+				char err[17];
+				for(int i = 0; i < 16; ++i)
+                                {
+					if (norm % 2 == 0) {err[15 - i] = 48;}
+                                        else {err[15 - i] = 49;}
+                                        norm>>=1;
 				}
-				dtc[16] = '\0';
-				free(msg);
-				msg = (char*)malloc(50 * sizeof(char));
-				strcpy(msg, "2-ERRORS: ");
-				strcat(msg, dtc);
+				err[16] = '\0';
+				free(out);
+				out = (char*)malloc(30 * sizeof(char));
+				strcpy(out, "2 Tetrad: ");
+				strcat(out, err);
 				UA_NodeId eventNodeId;
 				setUpEvent(server, &eventNodeId);
 				UA_Server_triggerEvent(server, eventNodeId,
@@ -69,22 +79,27 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 		}
 			break;
 		case 2:{
-			ref = 0x5125;
-			ref ^= value;
-			if(ref == 0){
-				cycle++;
-			}else{
-				cycle = 0;
-				char dtc[17];
-				for(int i = 0; i < 16; ++i){
-					dtc[15 - i] = 60 + ref%2;
-					ref >>= 1;
+			norm = 0x5440;
+			norm ^= value;
+			if(norm == 0)
+                        {
+				tetrad++;
+			}
+                        else
+                        {
+				tetrad = 0;
+				char err[17];
+				for(int i = 0; i < 16; ++i)
+                                {
+					if (norm % 2 == 0) {err[15 - i] = 48;}
+                                        else {err[15 - i] = 49;}
+					norm >>= 1;
 				}
-				dtc[16] = '\0';
-				free(msg);
-				msg = (char*)malloc(50 * sizeof(char));
-				strcpy(msg, "3-ERRORS: ");
-				strcat(msg, dtc);
+				err[16] = '\0';
+				free(out);
+				out = (char*)malloc(30 * sizeof(char));
+				strcpy(out, "3 Tetrad: ");
+				strcat(out, err);
 				UA_NodeId eventNodeId;
 				setUpEvent(server, &eventNodeId);
 				UA_Server_triggerEvent(server, eventNodeId,
@@ -94,31 +109,35 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 		}
 			break;
 		case 3:{
-			ref = 0x2800;
-			ref ^= value;
-			if(ref == 0){
-				cycle = 0;
-				free(msg);
-				msg = (char*)malloc(3 * sizeof(char));
-				strcpy(msg, "OK");
-				/*EVENT_OK*/
+			norm = 0x0000;
+			norm ^= value;
+			if(norm == 0)
+                        {
+				tetrad = 0;
+				free(out);
+				out = (char*)malloc(8 * sizeof(char));
+				strcpy(out, "Success");
 				UA_NodeId eventNodeId;
 				setUpEvent(server, &eventNodeId);
 				UA_Server_triggerEvent(server, eventNodeId,
                                     UA_NODEID_NUMERIC(0, UA_NS0ID_SERVER),
                                     NULL, UA_TRUE);
-			}else{
-				cycle = 0;
-				char dtc[17];
-				for(int i = 0; i < 16; ++i){
-					dtc[15 - i] = 60 + ref%2;
-					ref >>= 1;
+			}
+                        else
+                        {
+				tetrad = 0;
+				char err[17];
+				for(int i = 0; i < 16; ++i)
+                                {
+					if (norm % 2 == 0) {err[15 - i] = 48;}
+                                        else {err[15 - i] = 49;}
+					norm >>= 1;
 				}
-				dtc[16] = '\0';
-				free(msg);
-				msg = (char*)malloc(50 * sizeof(char));
-				strcpy(msg, "4-ERRORS: ");
-				strcat(msg, dtc);
+				err[16] = '\0';
+				free(out);
+				out = (char*)malloc(30 * sizeof(char));
+				strcpy(out, "4 Tetrad: ");
+				strcat(out, err);
 				UA_NodeId eventNodeId;
 				setUpEvent(server, &eventNodeId);
 				UA_Server_triggerEvent(server, eventNodeId,
@@ -167,7 +186,7 @@ setUpEvent(UA_Server *server, UA_NodeId *outId) {
     UA_Server_writeObjectProperty_scalar(server, *outId, UA_QUALIFIEDNAME(0, "Severity"),
                                          &eventSeverity, &UA_TYPES[UA_TYPES_UINT16]);
 
-    UA_LocalizedText eventMessage = UA_LOCALIZEDTEXT("en-US", msg);
+    UA_LocalizedText eventMessage = UA_LOCALIZEDTEXT("en-US", out);
     UA_Server_writeObjectProperty_scalar(server, *outId, UA_QUALIFIEDNAME(0, "Message"),
                                          &eventMessage, &UA_TYPES[UA_TYPES_LOCALIZEDTEXT]);
 
