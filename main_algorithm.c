@@ -116,7 +116,7 @@ void write_detector_value(UA_UInt16 value, UA_Server *server) {
 				}
 				dtc[16] = '\0';
 				free(msg);
-				msg = (char*)malloc(msg, 50 * sizeof(char));
+				msg = (char*)malloc(50 * sizeof(char));
 				strcpy(msg, "4-ERRORS: ");
 				strcat(msg, dtc);
 				UA_NodeId eventNodeId;
